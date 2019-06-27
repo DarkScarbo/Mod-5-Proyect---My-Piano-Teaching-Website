@@ -4,7 +4,7 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.text :url
       t.string :title
       t.text :description
-      t.integer :student_id
+      t.integer :user_id
 
       t.timestamps
     end

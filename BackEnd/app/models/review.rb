@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
   belongs_to :video
-  belongs_to :teacher
+  belongs_to :user
 end

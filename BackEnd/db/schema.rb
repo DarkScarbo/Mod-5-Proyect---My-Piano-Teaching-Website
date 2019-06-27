@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_25_170921) do
+ActiveRecord::Schema.define(version: 2019_06_27_103418) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,28 +20,23 @@ ActiveRecord::Schema.define(version: 2019_06_25_170921) do
     t.string "confirmed"
     t.datetime "starting"
     t.datetime "ending"
-    t.integer "student_id"
-    t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "text"
-    t.integer "student_id"
-    t.integer "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.text "text"
-    t.bigint "video_id"
-    t.bigint "teacher_id"
+    t.integer "video_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["teacher_id"], name: "index_reviews_on_teacher_id"
-    t.index ["video_id"], name: "index_reviews_on_video_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -60,15 +55,23 @@ ActiveRecord::Schema.define(version: 2019_06_25_170921) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "teacher_id"
+    t.string "typeOfUser"
+  end
+
   create_table "videos", force: :cascade do |t|
     t.text "url"
     t.string "title"
     t.text "description"
-    t.integer "student_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "reviews", "teachers"
-  add_foreign_key "reviews", "videos"
 end

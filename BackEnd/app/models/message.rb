@@ -1,4 +1,4 @@
 class Message < ApplicationRecord
-  belongs_to :student
-  belongs_to :teacher
+  has_one :user, foreign_key: 'student_id'
+  has_one :user, foreign_key: 'teacher_id'
 end
