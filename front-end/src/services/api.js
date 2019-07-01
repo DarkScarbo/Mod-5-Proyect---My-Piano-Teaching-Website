@@ -1,4 +1,4 @@
-export function signin(email, password) {
+export function logInApi(email, password) {
   return fetch("http://localhost:3000/signin", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -12,4 +12,4 @@ export function signin(email, password) {
 // 	body: JSON.stringify({ name: "Fran", email: "francisco.costa@gmail.com", password: "fran"})
 // }).then(resp => resp.json())
 
-export default { signin };
+export default { logInApi };

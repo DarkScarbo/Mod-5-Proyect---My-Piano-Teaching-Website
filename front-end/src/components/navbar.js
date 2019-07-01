@@ -9,6 +9,7 @@ const Navbar = props => (
     <Link to="/reviews">Review</Link>
     <Link to="/lessons">Lessons</Link>
     <Link to="/contact">Contact</Link>
+    {props.logedIn && <Link to="/mySpace">My Space</Link>}
   </div>
 );
 

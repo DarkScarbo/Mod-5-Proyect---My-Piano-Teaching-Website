@@ -22,19 +22,13 @@ class LoginAndSignedupConteiner extends React.Component {
   // handleChange = event =>
   //   this.setState({ [event.target.name]: event.target.value });
   render() {
-    const { username } = this.props;
-    const { email, password } = this.state;
+    const { userName, logOut } = this.props;
     return (
       <div>
-        {this.props.signedup ? (
-          <WelcomeUser username={username} />
+        {this.props.logedIn ? (
+          <WelcomeUser userName={userName} logOut={logOut} />
         ) : (
-          <SignUpLogInForm
-            signIn={this.props.signIn}
-            username={username}
-            email={email}
-            password={password}
-          />
+          <SignUpLogInForm logIn={this.props.logIn} />
         )}
       </div>
     );

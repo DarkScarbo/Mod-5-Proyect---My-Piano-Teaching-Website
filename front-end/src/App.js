@@ -7,33 +7,46 @@ import Navbar from "./components/navbar";
 import Lessons from "./components/lessons";
 import Contact from "./components/contact";
 import UserContainer from "./components/user_container";
+import MySpace from "./components/my_space";
 import { Route, Switch, withRouter } from "react-router-dom";
-import { signin } from "./services/api";
+import { logInApi } from "./services/api";
 
 class App extends React.Component {
   state = {
-    signedup: false,
-    username: ""
+    logedIn: false,
+    userName: "",
+    userId: ""
   };
 
-  signIn = event => {
+  logIn = event => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    signin(email, password).then(user => {
-      this.setState({ username: user.name });
+    logInApi(email, password).then(user => {
+      if (user.error) {
+        alert(user.error);
+      } else {
+        this.setState({ userName: user.name });
+        this.setState({ logedIn: true });
+        this.props.history.push("/mySpace");
+      }
     });
-    this.setState({ signedup: true });
   };
 
-  // signin = (user) => {
-  //   this.setState({ username: user.username })
+  logOut = () => {
+    this.setState({ userName: "" });
+    this.setState({ logedIn: false });
+    this.props.history.push("/");
+  };
+
+  // login = (user) => {
+  //   this.setState({ userName: user.userName })
   //   localStorage.setItem('token', user.token)
   //   this.props.history.push('/inventory')
   // }
 
-  // signout = () => {
-  //   this.setState({ username: '' })
+  // logout = () => {
+  //   this.setState({ userName: '' })
   //   localStorage.removeItem('token')
   // }
 
@@ -44,7 +57,7 @@ class App extends React.Component {
   //         if (data.error) {
   //           alert(data.error)
   //         } else {
-  //           this.signin(data)
+  //           this.login(data)
   //         }
   //       })
   //   }
@@ -53,11 +66,12 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar logedIn={this.state.logedIn} />
         <UserContainer
-          signIn={this.signIn}
-          signedup={this.state.signedup}
-          username={this.state.username}
+          logIn={this.logIn}
+          logOut={this.logOut}
+          logedIn={this.state.logedIn}
+          userName={this.state.userName}
         />
         <Switch>
           <Route exact path="/home" component={() => <Home />} />
@@ -65,6 +79,7 @@ class App extends React.Component {
           <Route exact path="/lessons" component={() => <Lessons />} />
           <Route exact path="/reviews" component={() => <Reviews />} />
           <Route exact path="/contact" component={() => <Contact />} />
+          <Route exact path="/mySpace" component={() => <MySpace />} />
         </Switch>
       </div>
     );

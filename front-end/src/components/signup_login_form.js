@@ -2,24 +2,23 @@ import React from "react";
 
 class SignUpLogInForm extends React.Component {
   state = {
-    signup: true,
-    password: ""
+    logStatus: true
   };
 
-  changeSignupState = () => {
-    this.setState({ signup: !this.state.signup });
+  changeLogStatus = () => {
+    this.setState({ logStatus: !this.state.logStatus });
   };
 
   render() {
     return (
       <div>
-        {this.state.signup ? (
-          <button onClick={this.changeSignupState}>Signup</button>
+        {this.state.logStatus ? (
+          <button onClick={this.changeLogStatus}>Sign Up</button>
         ) : (
-          <button onClick={this.changeSignupState}>Login</button>
+          <button onClick={this.changeLogStatus}>Log In</button>
         )}
-        <form onSubmit={this.props.signIn} name="form">
-          {this.state.signup && (
+        <form onSubmit={this.props.logIn} name="form">
+          {this.state.logStatus && (
             <div>
               <label htmlFor="username">Username</label>
               <input
@@ -48,7 +47,7 @@ class SignUpLogInForm extends React.Component {
             />
           </div>
           <div>
-            {this.state.signup ? (
+            {this.state.logStatus ? (
               <button>Signup</button>
             ) : (
               <button>Login</button>
