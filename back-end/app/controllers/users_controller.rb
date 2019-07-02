@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
     def index
         @users = User.all
-        render json: @users, except: [:created_at, :updated_at, :password_digest]
+        render json: @users, include: [user.is_teacher? ? :reviews : :videos, user.is_teacher? ? :students : :teachers], except: [:created_at, :updated_at, :password_digest]
     end
 
     def show
         user = User.find_by(id: params[:id])
+
         if user
-            render json: user, include: [user.is_teacher? ? :reviews : :videos, user.is_teacher? ? :students : :teachers], except: [:created_at, :updated_at, :password_digest]
+            render json: user, include: [:my_messages, user.is_teacher? ? :reviews : :videos, user.is_teacher? ? :students : :teacher], except: [:created_at, :updated_at, :password_digest]
         else
             render json: {error: "User not found."}, status: 404
         end
@@ -15,9 +16,8 @@ class UsersController < ApplicationController
 
     def signin
         user = User.find_by(email: params[:email])
-        # byebug
         if user && user.authenticate(params[:password])
-            render json: user
+            render json: { userName: user.name, token: issue_token({ id: user.id })}
         else
             render json: { error: 'Invalid email/password combination.'}, status: 401
         end
@@ -29,6 +29,15 @@ class UsersController < ApplicationController
           render json: user
         else
           render json: {errors: user.errors.full_messages}, status: 400
+        end
+    end
+
+    def validate
+        user = current_user
+        if user
+          render json: { userName: user.name, token: issue_token({ id: user.id }) }
+        else
+          render json: { error: 'User not found.' }, status: 404
         end
     end
 end

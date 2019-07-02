@@ -1,4 +1,5 @@
 import React from "react";
+import { logInApi } from "../services/api";
 
 class SignUpLogInForm extends React.Component {
   state = {
@@ -9,15 +10,29 @@ class SignUpLogInForm extends React.Component {
     this.setState({ logStatus: !this.state.logStatus });
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    logInApi(email, password).then(data => {
+      if (data.error) {
+        alert(data.error);
+      } else {
+        debugger;
+        this.props.logIn(data);
+      }
+    });
+  };
+
   render() {
     return (
       <div>
         {this.state.logStatus ? (
-          <button onClick={this.changeLogStatus}>Sign Up</button>
-        ) : (
           <button onClick={this.changeLogStatus}>Log In</button>
+        ) : (
+          <button onClick={this.changeLogStatus}>Sign Up</button>
         )}
-        <form onSubmit={this.props.logIn} name="form">
+        <form onSubmit={this.handleSubmit} name="form">
           {this.state.logStatus && (
             <div>
               <label htmlFor="username">Username</label>

@@ -20,6 +20,13 @@ class User < ApplicationRecord
         end
     end
 
+    def my_messages
+        if self.is_teacher?
+            Message.where(teacher_id: self.id)
+        else
+            Message.where(student_id: self.id)
+        end
+    end
     # has_many :students, through: :bookings, source: 'user'
     # has_many :videos, through: :reviews
 

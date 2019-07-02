@@ -6,10 +6,16 @@ export function logInApi(email, password) {
   }).then(resp => resp.json());
 }
 
+export function validate() {
+  return fetch("http://localhost:3000/validate", {
+    headers: { Authorisation: localStorage.token }
+  }).then(resp => resp.json());
+}
+
 // fetch("http://localhost:3000/signup", {
 //     method: 'POST',
 // 	headers: { 'Content-Type': 'application/json' },
 // 	body: JSON.stringify({ name: "Fran", email: "francisco.costa@gmail.com", password: "fran"})
 // }).then(resp => resp.json())
 
-export default { logInApi };
+export default { logInApi, validate };

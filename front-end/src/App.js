@@ -9,59 +9,40 @@ import Contact from "./components/contact";
 import UserContainer from "./components/user_container";
 import MySpace from "./components/my_space";
 import { Route, Switch, withRouter } from "react-router-dom";
-import { logInApi } from "./services/api";
+import { validate } from "./services/api";
 
 class App extends React.Component {
   state = {
     logedIn: false,
-    userName: "",
-    userId: ""
+    userName: ""
   };
 
-  logIn = event => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    logInApi(email, password).then(user => {
-      if (user.error) {
-        alert(user.error);
-      } else {
-        this.setState({ userName: user.name });
-        this.setState({ logedIn: true });
-        this.props.history.push("/mySpace");
-      }
-    });
+  componentDidMount() {
+    // debugger;
+    if (localStorage.token) {
+      validate().then(user => {
+        if (user.error) {
+          alert(user.error);
+        } else {
+          this.logIn(user);
+        }
+      });
+    }
+  }
+
+  logIn = user => {
+    this.setState({ userName: user.userName });
+    this.setState({ logedIn: true });
+    this.props.history.push("/mySpace");
+    localStorage.setItem("token", user.token);
   };
 
   logOut = () => {
     this.setState({ userName: "" });
     this.setState({ logedIn: false });
     this.props.history.push("/");
+    localStorage.removeItem("token");
   };
-
-  // login = (user) => {
-  //   this.setState({ userName: user.userName })
-  //   localStorage.setItem('token', user.token)
-  //   this.props.history.push('/inventory')
-  // }
-
-  // logout = () => {
-  //   this.setState({ userName: '' })
-  //   localStorage.removeItem('token')
-  // }
-
-  // componentDidMount () {
-  //   if (localStorage.token) {
-  //     validate()
-  //       .then(data => {
-  //         if (data.error) {
-  //           alert(data.error)
-  //         } else {
-  //           this.login(data)
-  //         }
-  //       })
-  //   }
-  // }
 
   render() {
     return (
@@ -79,7 +60,13 @@ class App extends React.Component {
           <Route exact path="/lessons" component={() => <Lessons />} />
           <Route exact path="/reviews" component={() => <Reviews />} />
           <Route exact path="/contact" component={() => <Contact />} />
-          <Route exact path="/mySpace" component={() => <MySpace />} />
+          <Route
+            exact
+            path="/mySpace"
+            component={props => (
+              <MySpace userName={this.state.userName} {...props} />
+            )}
+          />
         </Switch>
       </div>
     );
