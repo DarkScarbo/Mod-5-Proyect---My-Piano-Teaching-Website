@@ -14,6 +14,8 @@ class User < ApplicationRecord
         self.typeOfUser == "teacher"
     end
 
+    
+
     def teacher_relationship_exists?
         if !self.is_teacher? && !self.teacher
             errors.add(:teacher, "must exist")

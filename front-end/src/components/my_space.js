@@ -5,7 +5,7 @@ import Videos from "./videos";
 
 class MySpace extends React.Component {
   componentDidMount() {
-    if (!this.props.userName) {
+    if (!this.props.name) {
       this.props.history.push("./");
     }
   }

@@ -2,7 +2,7 @@ import React from "react";
 
 const WelcomeUser = props => (
   <div>
-    Welcome {props.userName}
+    Welcome {props.name}
     <button onClick={props.logOut}>Sign out</button>
   </div>
 );

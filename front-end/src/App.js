@@ -14,11 +14,10 @@ import { validate } from "./services/api";
 class App extends React.Component {
   state = {
     logedIn: false,
-    userName: ""
+    name: ""
   };
 
   componentDidMount() {
-    // debugger;
     if (localStorage.token) {
       validate().then(user => {
         if (user.error) {
@@ -31,14 +30,16 @@ class App extends React.Component {
   }
 
   logIn = user => {
-    this.setState({ userName: user.userName });
+    debugger;
+    this.setState({ name: user.name });
     this.setState({ logedIn: true });
     this.props.history.push("/mySpace");
     localStorage.setItem("token", user.token);
+    debugger;
   };
 
   logOut = () => {
-    this.setState({ userName: "" });
+    this.setState({ name: "" });
     this.setState({ logedIn: false });
     this.props.history.push("/");
     localStorage.removeItem("token");
@@ -52,7 +53,7 @@ class App extends React.Component {
           logIn={this.logIn}
           logOut={this.logOut}
           logedIn={this.state.logedIn}
-          userName={this.state.userName}
+          name={this.state.name}
         />
         <Switch>
           <Route exact path="/home" component={() => <Home />} />
@@ -63,9 +64,7 @@ class App extends React.Component {
           <Route
             exact
             path="/mySpace"
-            component={props => (
-              <MySpace userName={this.state.userName} {...props} />
-            )}
+            component={props => <MySpace name={this.state.name} {...props} />}
           />
         </Switch>
       </div>

@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :messages
   resources :bookings
   post '/signup', to: 'users#signup'
-  post '/signin', to: 'users#signin'
+  post '/login', to: 'users#login'
   get '/validate', to: 'users#validate'
 end

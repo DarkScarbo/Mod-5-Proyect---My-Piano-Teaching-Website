@@ -1,5 +1,5 @@
 import React from "react";
-import { logInApi } from "../services/api";
+import { logInApi, signUpApi } from "../services/api";
 
 class SignUpLogInForm extends React.Component {
   state = {
@@ -14,14 +14,31 @@ class SignUpLogInForm extends React.Component {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    logInApi(email, password).then(data => {
-      if (data.error) {
-        alert(data.error);
-      } else {
-        debugger;
-        this.props.logIn(data);
-      }
-    });
+    if (this.state.logStatus == false) {
+      logInApi(email, password).then(data => {
+        if (data.error) {
+          alert(data.error);
+        } else {
+          this.props.logIn(data);
+        }
+      });
+    } else {
+      const name = e.target.username.value;
+
+      signUpApi(name, email, password).then(data => {
+        if (data.error) {
+          alert(data.error);
+        } else {
+          logInApi(email, password).then(data => {
+            if (data.error) {
+              alert(data.error);
+            } else {
+              this.props.logIn(data);
+            }
+          });
+        }
+      });
+    }
   };
 
   render() {
