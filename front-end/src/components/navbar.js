@@ -1,4 +1,5 @@
 import React from "react";
+import UserContainer from "./user_container";
 
 import { Link } from "react-router-dom";
 
@@ -10,6 +11,12 @@ const Navbar = props => (
     <Link to="/lessons">Lessons</Link>
     <Link to="/contact">Contact</Link>
     {props.logedIn && <Link to="/mySpace">My Space</Link>}
+    <UserContainer
+      logIn={props.logIn}
+      logOut={props.logOut}
+      logedIn={props.logedIn}
+      name={props.name}
+    />
   </div>
 );
 

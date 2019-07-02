@@ -6,7 +6,6 @@ import About from "./components/about";
 import Navbar from "./components/navbar";
 import Lessons from "./components/lessons";
 import Contact from "./components/contact";
-import UserContainer from "./components/user_container";
 import MySpace from "./components/my_space";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { validate } from "./services/api";
@@ -30,12 +29,10 @@ class App extends React.Component {
   }
 
   logIn = user => {
-    debugger;
     this.setState({ name: user.name });
     this.setState({ logedIn: true });
     this.props.history.push("/mySpace");
     localStorage.setItem("token", user.token);
-    debugger;
   };
 
   logOut = () => {
@@ -48,8 +45,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Navbar logedIn={this.state.logedIn} />
-        <UserContainer
+        <Navbar
+          logedIn={this.state.logedIn}
           logIn={this.logIn}
           logOut={this.logOut}
           logedIn={this.state.logedIn}
