@@ -13,7 +13,9 @@ import { validate } from "./services/api";
 class App extends React.Component {
   state = {
     logedIn: false,
-    name: ""
+    name: "",
+    id: null,
+    typeOfUser: ""
   };
 
   componentDidMount() {
@@ -29,15 +31,18 @@ class App extends React.Component {
   }
 
   logIn = user => {
-    this.setState({ name: user.name });
-    this.setState({ logedIn: true });
+    this.setState({
+      name: user.name,
+      logedIn: true,
+      id: user.id,
+      typeOfUser: user.typeOfUser
+    });
     this.props.history.push("/mySpace");
     localStorage.setItem("token", user.token);
   };
 
   logOut = () => {
-    this.setState({ name: "" });
-    this.setState({ logedIn: false });
+    this.setState({ name: "", logedIn: false });
     this.props.history.push("/");
     localStorage.removeItem("token");
   };
@@ -49,7 +54,6 @@ class App extends React.Component {
           logedIn={this.state.logedIn}
           logIn={this.logIn}
           logOut={this.logOut}
-          logedIn={this.state.logedIn}
           name={this.state.name}
         />
         <Switch>
@@ -61,7 +65,7 @@ class App extends React.Component {
           <Route
             exact
             path="/mySpace"
-            component={props => <MySpace name={this.state.name} {...props} />}
+            component={props => <MySpace name={this.state.name} id={this.state.id} typeOfUser={this.state.typeOfUser} {...props} />}
           />
         </Switch>
       </div>

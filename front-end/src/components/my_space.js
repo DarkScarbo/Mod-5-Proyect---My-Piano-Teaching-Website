@@ -4,6 +4,13 @@ import Bookings from "./bookings";
 import Videos from "./videos";
 
 class MySpace extends React.Component {
+  state = {
+    messages: [],
+    bookings: [],
+    videos: [],
+    reviews: []
+  };
+
   componentDidMount() {
     if (!this.props.name) {
       this.props.history.push("./");

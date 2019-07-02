@@ -14,7 +14,7 @@ class SignUpLogInForm extends React.Component {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    if (this.state.logStatus == false) {
+    if (this.state.logStatus === false) {
       logInApi(email, password).then(data => {
         if (data.error) {
           alert(data.error);
