@@ -1,14 +1,15 @@
 class UsersController < ApplicationController
     def index
         @users = User.all
-        render json: @users, include: [user.is_teacher? ? :reviews : :videos, user.is_teacher? ? :students : :teachers], except: [:created_at, :updated_at, :password_digest]
+        render json: @users, include: [:my_messages, :my_bookings, user.is_teacher? ? :reviews : :videos, user.is_teacher? ? :students : :teacher], except: [:created_at, :updated_at, :password_digest]
+    else
     end
 
     def show
         user = User.find_by(id: params[:id])
 
         if user
-            render json: user, include: [:my_messages, user.is_teacher? ? :reviews : :videos, user.is_teacher? ? :students : :teacher], except: [:created_at, :updated_at, :password_digest]
+            render json: user, include: [:my_messages, :my_bookings, user.is_teacher? ? :reviews : :videos, user.is_teacher? ? :students : :teacher], except: [:created_at, :updated_at, :password_digest]
         else
             render json: {error: "User not found."}, status: 404
         end
