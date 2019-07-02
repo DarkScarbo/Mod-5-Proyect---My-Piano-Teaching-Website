@@ -40,4 +40,14 @@ class UsersController < ApplicationController
           render json: { error: 'User not found.' }, status: 404
         end
     end
+
+    def get_students_videos
+        videos = User.generate_students_videos(params[:ids])
+
+        if videos.length > 0
+            render json: videos
+        else
+            render json: { error: 'Videos not found.' }, status: 404
+        end
+    end
 end

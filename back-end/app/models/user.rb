@@ -14,8 +14,6 @@ class User < ApplicationRecord
         self.typeOfUser == "teacher"
     end
 
-    
-
     def teacher_relationship_exists?
         if !self.is_teacher? && !self.teacher
             errors.add(:teacher, "must exist")
@@ -38,14 +36,13 @@ class User < ApplicationRecord
         end
     end
 
-    # has_many :students, through: :bookings, source: 'user'
-    # has_many :videos, through: :reviews
+    def self.generate_students_videos(ids)
+        videos = []
+        ids.each do |id|
+            student = User.find_by(id: id)
+            videos << student.videos
+        end
+        videos
+    end
 
-    # def getStudents()
-    #     if is_teacher?
-    #         User.all.select {|user| user.teacher_id == self.id}
-    #     else
-    #         puts "This user is a student."
-    #     end
-    # end
 end
