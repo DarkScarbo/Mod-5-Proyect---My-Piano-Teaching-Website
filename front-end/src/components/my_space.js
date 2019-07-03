@@ -32,48 +32,28 @@ class MySpace extends React.Component {
             this.setState({
               messages: user.my_messages,
               bookings: user.my_bookings,
-              videos: user.reviews
+              videos: user.videos
             });
           }
         })
-        .then(() =>
-          fetchStudentVideosForTeacher(this.state.studentsIds).then(videos =>
-            this.setState({ videos: videos.filter(video => video.length > 0) })
-          )
-        );
-      // if (this.state.studentsIds.length > 0) {
-      // fetchStudentVideosForTeacher(this.state.studentsIds);
-      // }
-
-      // if (this.state.studentsIds.length > 0) {
-      //   fetchStudentVideosForTeacher(this.state.studentsIds).then(videos =>
-      //     this.setState({ videos: videos })
-      //   );
-      // }
+        .then(() => {
+          if (this.props.typeOfUser == "teacher")
+            fetchStudentVideosForTeacher(this.state.studentsIds).then(videos =>
+              this.setState({
+                videos: videos.filter(video => video.length > 0)
+              })
+            );
+        });
     }
   }
 
-  // componentDidUpdate() {
-  //   if (this.state.videos.length < 1) {
-  //     this.getVids();
-  //   }
-  // }
-
-  // getVids = () => {
-  //   if (this.state.studentsIds.length > 0) {
-  //     fetchStudentVideosForTeacher(this.state.studentsIds).then(videos =>
-  //       this.setState({ videos })
-  //     );
-  //   }
-  // };
   render() {
     return (
       <div>
         This is my space
         {/* <Messages />
         <Bookings />
-      <Videos /> */}
-        {/* {this.getVids()} */}
+        <Videos />  */}
       </div>
     );
   }
