@@ -36,13 +36,13 @@ class User < ApplicationRecord
         end
     end
 
-    def self.generate_students_videos(ids)
-        videos = []
-        ids.each do |id|
-            student = User.find_by(id: id)
-            videos << student.videos
-        end
-        videos
-    end
+    # def self.generate_students_videos(ids)
+    #     videos = []
+    #     ids.each do |id|
+    #         student = User.find_by(id: id)
+    #         videos << student.videos
+    #     end
+    #     videos
+    # end
 
 end

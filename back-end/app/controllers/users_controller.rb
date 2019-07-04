@@ -6,9 +6,13 @@ class UsersController < ApplicationController
 
     def show
         user = User.find_by(id: params[:id])
-
         if user
-            render json: user, include: [:my_messages, :my_bookings, user.is_teacher? ? :reviews : :videos, user.is_teacher? ? :students : :teacher], except: [:created_at, :updated_at, :password_digest]
+            render json: user, include: [ user.is_teacher? ? {} : :my_bookings, user.is_teacher? ? {} : :my_messages, 
+                                          user.is_teacher? ? {} : {videos: {include: [:review]}}, 
+                                          user.is_teacher? ? {students: {
+                                                include: [:my_messages, :my_bookings, {videos: {include: [:review]}}], 
+                                                 except: [:password_digest, :created_at, :updated_at]}} : :teacher], 
+                                except: [:created_at, :updated_at, :password_digest]
         else
             render json: {error: "User not found."}, status: 404
         end
@@ -41,13 +45,13 @@ class UsersController < ApplicationController
         end
     end
 
-    def get_students_videos
-        videos = User.generate_students_videos(params[:ids])
+    # def get_students_videos
+    #     videos = User.generate_students_videos(params[:ids])
 
-        if videos.length > 0
-            render json: videos
-        else
-            render json: { error: 'Videos not found.' }, status: 404
-        end
-    end
+    #     if videos.length > 0
+    #         render json: videos
+    #     else
+    #         render json: { error: 'Videos not found.' }, status: 404
+    #     end
+    # end
 end
