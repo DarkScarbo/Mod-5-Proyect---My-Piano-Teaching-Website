@@ -10,7 +10,6 @@ class MySpace extends React.Component {
     bookings: [],
     videos: [],
     students: []
-    // reviews: []
   };
 
   componentDidMount() {
@@ -25,30 +24,21 @@ class MySpace extends React.Component {
           if (this.props.typeOfUser === "teacher") {
             this.setState({
               students: user.students,
+              // this three next lines remove messages, bookings and videos from state as a teacher
               messages: user.my_messages,
               bookings: user.my_bookings,
               videos: user.videos
-              // reviews: user.reviews,
-              // studentsIds: user.students.map(student => student.id)
             });
           } else {
             this.setState({
               messages: user.my_messages,
               bookings: user.my_bookings,
               videos: user.videos,
+              // the next line removes students from state as a student
               students: user.students
-              // reviews: user.videos.map(video => video.review)
             });
           }
-        });
-      // .then(() => {
-      //   if (this.props.typeOfUser == "teacher")
-      //     fetchStudentVideosForTeacher(this.state.studentsIds).then(videos =>
-      //       this.setState({
-      //         videos: videos.filter(video => video.length > 0)
-      //       })
-      //     );
-      // });
+        })
     }
   }
 

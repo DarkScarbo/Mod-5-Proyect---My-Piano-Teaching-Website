@@ -7,15 +7,19 @@ class UsersController < ApplicationController
     def show
         user = User.find_by(id: params[:id])
         if user
-            render json: user, include: [ user.is_teacher? ? {} : :my_bookings, user.is_teacher? ? {} : :my_messages, 
-                                          user.is_teacher? ? {} : {videos: {include: [:review]}}, 
-                                          user.is_teacher? ? {students: {
-                                                include: [:my_messages, :my_bookings, {videos: {include: [:review]}}], 
-                                                 except: [:password_digest, :created_at, :updated_at]}} : :teacher], 
-                                except: [:created_at, :updated_at, :password_digest]
+            if user.is_teacher?
+                render json: user, include: [{students: {
+                                            include: [:my_messages, :my_bookings, {videos: {include: [:review]}}], 
+                                            except: [:password_digest, :created_at, :updated_at]}}],
+                                    except: [:created_at, :updated_at, :password_digest]  
+            else
+                render json: user, include: [:my_bookings,:my_messages, {videos: {include: [:review]}}],
+                                    except: [:created_at, :updated_at, :password_digest]
+            end
         else
             render json: {error: "User not found."}, status: 404
         end
+
     end
 
     def login
