@@ -3,6 +3,7 @@ import BookingCard from "./bookingCard";
 import { DateInput, TimeInput } from "semantic-ui-calendar-react";
 import { Button, Form } from "semantic-ui-react";
 import { postBooking } from "../services/api";
+import { Grid, Segment } from "semantic-ui-react";
 
 class Bookings extends React.Component {
   constructor(props) {
@@ -61,6 +62,20 @@ class Bookings extends React.Component {
           />
           <Button>Submit</Button>
         </Form>
+        <Grid columns="equal">
+          <Grid.Column>
+            <Segment>Date</Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>Starting Time</Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>Ending time</Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>Confirmed?</Segment>
+          </Grid.Column>
+        </Grid>
         {this.props.bookings.map((booking, index) => (
           <BookingCard key={index} booking={booking} />
         ))}
