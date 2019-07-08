@@ -20,15 +20,39 @@ export function signUpApi(name, email, password) {
   }).then(resp => resp.json());
 }
 
-export function postVideo(url, title, description, id) {
+export function postVideo(url, title, description, user_id) {
   return fetch("http://localhost:3000/videos", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ url, title, description, id })
+    body: JSON.stringify({ url, title, description, user_id })
   }).then(resp => resp.json());
 }
 
-export default { logInApi, signUpApi, validate };
+export function postBooking(
+  date,
+  starting,
+  ending,
+  confirmed,
+  student_id,
+  creator_id,
+  teacher_id
+) {
+  return fetch("http://localhost:3000/bookings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      date,
+      starting,
+      ending,
+      confirmed,
+      student_id,
+      creator_id,
+      teacher_id
+    })
+  }).then(resp => resp.json());
+}
+
+export default { logInApi, signUpApi, validate, postVideo, postBooking };
 
 // fetch("http://localhost:3000/signup", {
 //   method: "POST",

@@ -14,6 +14,11 @@ class MySpace extends React.Component {
     activeItem: "bio"
   };
 
+  postVideoOnThePage = video => {
+    debugger;
+    this.setState({ videos: [...this.state.videos, video] });
+  };
+
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   componentDidMount() {
     if (!this.props.name) {
@@ -54,12 +59,24 @@ class MySpace extends React.Component {
           <Route
             exact
             path="/mySpace/myBookings"
-            component={() => <Bookings />}
+            component={() => (
+              <Bookings
+                typeOfUser={this.state.typeOfUser}
+                bookings={this.state.bookings}
+                id={this.props.id}
+              />
+            )}
           />
           <Route
             exact
             path="/mySpace/myVideos"
-            component={() => <Videos videos={this.state.videos} />}
+            component={() => (
+              <Videos
+                videos={this.state.videos}
+                id={this.props.id}
+                postVideoOnThePage={this.postVideoOnThePage}
+              />
+            )}
           />
         </Switch>
       </div>

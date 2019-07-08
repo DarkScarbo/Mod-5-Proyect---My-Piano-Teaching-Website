@@ -24,20 +24,24 @@ class SignUpLogInForm extends React.Component {
       });
     } else {
       const name = e.target.username.value;
-
-      signUpApi(name, email, password).then(data => {
-        if (data.error) {
-          alert(data.error);
-        } else {
-          logInApi(email, password).then(data => {
-            if (data.error) {
-              alert(data.error);
-            } else {
-              this.props.logIn(data);
-            }
-          });
-        }
-      });
+      const passwordConfirmation = e.target.password_confirmation.value;
+      if (password === passwordConfirmation) {
+        signUpApi(name, email, password).then(data => {
+          if (data.error) {
+            alert(data.error);
+          } else {
+            logInApi(email, password).then(data => {
+              if (data.error) {
+                alert(data.error);
+              } else {
+                this.props.logIn(data);
+              }
+            });
+          }
+        });
+      } else {
+        alert("Your passwords do not match");
+      }
     }
   };
 
@@ -78,6 +82,18 @@ class SignUpLogInForm extends React.Component {
               // onChange={this.handleChange}
             />
           </div>
+          {this.state.logStatus && (
+            <div>
+              <label htmlFor="password_confirmation">
+                Password Confirmation
+              </label>
+              <input
+                type="password"
+                name="password_confirmation"
+                // onChange={this.handleChange}
+              />
+            </div>
+          )}
           <div>
             {this.state.logStatus ? (
               <button>Signup</button>

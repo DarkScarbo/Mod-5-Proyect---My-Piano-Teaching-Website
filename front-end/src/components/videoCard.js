@@ -2,7 +2,7 @@ import React from "react";
 import YouTube from "react-youtube";
 import { Card, Accordion, Icon } from "semantic-ui-react";
 
-class VideosList extends React.Component {
+class VideoCard extends React.Component {
   state = {
     activeIndex: -1
   };
@@ -23,7 +23,7 @@ class VideosList extends React.Component {
     };
     return (
       <div>
-        <Card>
+        <Card fluid>
           <Card.Content>
             <YouTube
               videoId={this.props.video.url}
@@ -41,9 +41,14 @@ class VideosList extends React.Component {
             >
               <Icon name="dropdown" />
               Review
+              {this.props.video.review ? (
+                <Icon name="checkmark" />
+              ) : (
+                <Icon name="close" />
+              )}
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
-              <p>{this.props.video.review.text}</p>
+              <p>{this.props.video.review && this.props.video.review.text}</p>
             </Accordion.Content>
           </Accordion>
         </Card>
@@ -56,4 +61,4 @@ class VideosList extends React.Component {
   }
 }
 
-export default VideosList;
+export default VideoCard;
