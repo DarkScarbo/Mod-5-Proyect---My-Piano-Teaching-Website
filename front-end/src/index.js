@@ -4,10 +4,13 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
+import { Container } from "semantic-ui-react";
 
 ReactDOM.render(
   <Router>
-    <App />
+    <Container>
+      <App />
+    </Container>
   </Router>,
   document.getElementById("root")
 );

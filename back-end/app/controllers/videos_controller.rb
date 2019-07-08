@@ -13,4 +13,13 @@ class VideosController < ApplicationController
         end
     end
 
+    def create
+        video = Video.new(url: params[:url], title: params[:title], desciption: params[:desciption], id: params[:id])
+        if video.save
+          render json: user
+        else
+          render json: {errors: video.errors.full_messages}, status: 400
+        end
+    end
+
 end

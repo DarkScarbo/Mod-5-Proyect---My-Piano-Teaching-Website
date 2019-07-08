@@ -20,13 +20,13 @@ export function signUpApi(name, email, password) {
   }).then(resp => resp.json());
 }
 
-// export function fetchStudentVideosForTeacher(ids) {
-//   return fetch("http://localhost:3000/getstudentsvideos", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({ ids })
-//   }).then(resp => resp.json());
-// }
+export function postVideo(url, title, description, id) {
+  return fetch("http://localhost:3000/videos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ url, title, description, id })
+  }).then(resp => resp.json());
+}
 
 export default { logInApi, signUpApi, validate };
 

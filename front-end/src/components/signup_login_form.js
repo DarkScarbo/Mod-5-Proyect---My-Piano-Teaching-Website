@@ -3,7 +3,7 @@ import { logInApi, signUpApi } from "../services/api";
 
 class SignUpLogInForm extends React.Component {
   state = {
-    logStatus: true
+    logStatus: false
   };
 
   changeLogStatus = () => {

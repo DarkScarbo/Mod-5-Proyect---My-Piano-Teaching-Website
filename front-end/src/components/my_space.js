@@ -2,19 +2,22 @@ import React from "react";
 import Messages from "./messages";
 import Bookings from "./bookings";
 import Videos from "./videos";
-// import { fetchStudentVideosForTeacher } from "../services/api";
+import { Route, Switch } from "react-router-dom";
+import MySpaceNavbar from "./mySpaceNavbar";
 
 class MySpace extends React.Component {
   state = {
     messages: [],
     bookings: [],
     videos: [],
-    students: []
+    students: [],
+    activeItem: "bio"
   };
 
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   componentDidMount() {
     if (!this.props.name) {
-      this.props.history.push("./");
+      this.props.history.push("/");
     }
     if (this.props.id) {
       fetch(`http://localhost:3000/users/${this.props.id}`)
@@ -38,17 +41,27 @@ class MySpace extends React.Component {
               students: user.students
             });
           }
-        })
+        });
     }
   }
 
   render() {
     return (
       <div>
-        This is my space
-        {/* <Messages />
-        <Bookings />
-        <Videos />  */}
+        My Space
+        <MySpaceNavbar />
+        <Switch>
+          <Route
+            exact
+            path="/mySpace/myBookings"
+            component={() => <Bookings />}
+          />
+          <Route
+            exact
+            path="/mySpace/myVideos"
+            component={() => <Videos videos={this.state.videos} />}
+          />
+        </Switch>
       </div>
     );
   }
