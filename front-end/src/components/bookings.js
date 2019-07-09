@@ -29,10 +29,10 @@ class Bookings extends React.Component {
     const confirmed = "";
     const creator_id = this.props.id;
     const student_id = this.props.id;
-    postBooking(date, starting, ending, confirmed, creator_id, student_id);
-    // .then(
-    //   booking => this.props.postBookingOnThePage(booking)
-    // );
+    postBooking(date, starting, ending, confirmed, creator_id, student_id)
+    .then(
+      booking => this.props.postBookingOnThePage(booking)
+    );
   };
 
   render() {

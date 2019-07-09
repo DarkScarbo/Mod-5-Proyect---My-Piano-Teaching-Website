@@ -19,7 +19,10 @@ class MySpaceNavbar extends React.Component {
           <Link to="/mySpace/myVideos">
             <Menu.Item name="My Videos" onClick={this.handleItemClick} />
           </Link>
-          <Menu.Menu position="right" />
+          <Menu.Menu position="left" />
+          <Link to="/mySpace/myMessages">
+            <Menu.Item name="My Messages" onClick={this.handleItemClick} />
+          </Link>
         </Menu>
       </div>
     );

@@ -14,8 +14,15 @@ class MySpace extends React.Component {
     activeItem: "bio"
   };
 
+  postMessageOnThePage = message => {
+    this.setState({ messages: [...this.state.messages, message] });
+  };
+
+  postBookingOnThePage = booking => {
+    this.setState({ bookings: [...this.state.bookings, booking] });
+  };
+
   postVideoOnThePage = video => {
-    debugger;
     this.setState({ videos: [...this.state.videos, video] });
   };
 
@@ -32,7 +39,7 @@ class MySpace extends React.Component {
           if (this.props.typeOfUser === "teacher") {
             this.setState({
               students: user.students,
-              // this three next lines remove messages, bookings and videos from state as a teacher
+              // this next three lines remove messages, bookings and videos from state as a teacher
               messages: user.my_messages,
               bookings: user.my_bookings,
               videos: user.videos
@@ -53,7 +60,7 @@ class MySpace extends React.Component {
   render() {
     return (
       <div>
-        My Space
+        Welcome to My Space {this.props.name}!
         <MySpaceNavbar />
         <Switch>
           <Route
@@ -64,6 +71,7 @@ class MySpace extends React.Component {
                 typeOfUser={this.state.typeOfUser}
                 bookings={this.state.bookings}
                 id={this.props.id}
+                postBookingOnThePage={this.postBookingOnThePage}
               />
             )}
           />
@@ -75,6 +83,19 @@ class MySpace extends React.Component {
                 videos={this.state.videos}
                 id={this.props.id}
                 postVideoOnThePage={this.postVideoOnThePage}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/mySpace/myMessages"
+            component={() => (
+              <Messages
+                messages={this.state.messages}
+                id={this.props.id}
+                name={this.props.name}
+                typeOfUser={this.props.typeOfUser}
+                postMessageOnThePage={this.postMessageOnThePage}
               />
             )}
           />

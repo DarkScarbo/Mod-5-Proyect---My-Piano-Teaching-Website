@@ -16,8 +16,10 @@ User.destroy_all
 xabi = User.create(name: "Xabier", email: "xabi.casan.piano@gmail.com", typeOfUser: "teacher", password: "xabier", teacher_id: nil)
 harriet = User.create(name: "Harriet", email: "harriet.ballantyne@gmail.com", typeOfUser: "student", password: "harriet", teacher_id: xabi.id)
 
-message_one = Message.create(text: "Hey Xabi! I need a piano teacher! Are you available", student_id: harriet.id, teacher_id: xabi.id, creator_id: harriet.id)
-message_two = Message.create(text: "Hey Harriet! Yes, I would love to be your piano teacher !", student_id: harriet.id, teacher_id: xabi.id, creator_id: xabi.id)
+message_one = Message.create(text: "Hey Xabi! I need a piano teacher! Are you available?", student_id: harriet.id, teacher_id: xabi.id, creator_id: harriet.id)
+message_two = Message.create(text: "Hey Harriet! Yes, I would love to be your piano teacher! What are you working on?", student_id: harriet.id, teacher_id: xabi.id, creator_id: xabi.id)
+message_three = Message.create(text: "I'm currently playing 'Gaspard de la nuit', by Ravel, and I have a concert very soon.", student_id: harriet.id, teacher_id: xabi.id, creator_id: harriet.id)
+message_four = Message.create(text: "Perfect! I know that work very well, I can give you lots of tips.", student_id: harriet.id, teacher_id: xabi.id, creator_id: xabi.id)
 
 booking_one = Booking.create(date: "2019/06/26", teacher_id: xabi.id, student_id: harriet.id, confirmed: "Yes", starting: "17:00", ending: "18:30", creator_id: xabi.id)
 booking_two = Booking.create(date: "2019/07/2", teacher_id: xabi.id, student_id: harriet.id, confirmed: "", starting: "18:00", ending: "19:30", creator_id: xabi.id)

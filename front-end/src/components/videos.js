@@ -35,7 +35,7 @@ class Videos extends React.Component {
           <Button type="submit">Submit</Button>
         </Form>
         {this.props.videos.map((video, index) => (
-          <VideoCard key={index} video={video} />
+          <VideoCard key={index} video={video} showReviewForm={true} />
         ))}
       </div>
     );

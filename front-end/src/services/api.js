@@ -52,7 +52,22 @@ export function postBooking(
   }).then(resp => resp.json());
 }
 
-export default { logInApi, signUpApi, validate, postVideo, postBooking };
+export function postMessage(text, creator_id, student_id, teacher_id) {
+  return fetch("http://localhost:3000/messages", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text, creator_id, student_id, teacher_id })
+  }).then(resp => resp.json());
+}
+
+export default {
+  logInApi,
+  signUpApi,
+  validate,
+  postVideo,
+  postBooking,
+  postMessage
+};
 
 // fetch("http://localhost:3000/signup", {
 //   method: "POST",
