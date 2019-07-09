@@ -19,7 +19,8 @@ harriet = User.create(name: "Harriet", email: "harriet.ballantyne@gmail.com", ty
 message_one = Message.create(text: "Hey Xabi! I need a piano teacher! Are you available", student_id: harriet.id, teacher_id: xabi.id, creator_id: harriet.id)
 message_two = Message.create(text: "Hey Harriet! Yes, I would love to be your piano teacher !", student_id: harriet.id, teacher_id: xabi.id, creator_id: xabi.id)
 
-booking_one = Booking.create(date: "2019/07/26", teacher_id: xabi.id, student_id: harriet.id, confirmed: "", starting: "2019-07-26 17:00", ending: "2019-07-26 18:30", creator_id: xabi.id)
+booking_one = Booking.create(date: "2019/06/26", teacher_id: xabi.id, student_id: harriet.id, confirmed: "Yes", starting: "17:00", ending: "18:30", creator_id: xabi.id)
+booking_two = Booking.create(date: "2019/07/2", teacher_id: xabi.id, student_id: harriet.id, confirmed: "", starting: "18:00", ending: "19:30", creator_id: xabi.id)
 
 harriet_playing_ondine = Video.create(url: "94SrLeiKJ-0", title: "Harriet playing Ondine, from Gaspard de la nuit, by Ravel", description: "Recorded in 2019/06/20", user_id: harriet.id)
 harriet_playing_le_gibet = Video.create(url: "3PQ-H1PjrWQ", title: "Harriet playing Le Gibet, from Gaspard de la nuit, by Ravel", description: "Recorded in 2019/06/20", user_id: harriet.id)

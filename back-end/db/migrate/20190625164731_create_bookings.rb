@@ -3,8 +3,8 @@ class CreateBookings < ActiveRecord::Migration[5.2]
     create_table :bookings do |t|
       t.date :date
       t.string :confirmed
-      t.datetime :starting
-      t.datetime :ending
+      t.string :starting
+      t.string :ending
       t.timestamps
     end
   end
