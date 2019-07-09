@@ -49,9 +49,9 @@ class SignUpLogInForm extends React.Component {
     return (
       <div>
         {this.state.logStatus ? (
-          <button onClick={this.changeLogStatus}>Log In</button>
+          <button onClick={this.changeLogStatus}>Or Log In</button>
         ) : (
-          <button onClick={this.changeLogStatus}>Sign Up</button>
+          <button onClick={this.changeLogStatus}>Or Sign Up</button>
         )}
         <form onSubmit={this.handleSubmit} name="form">
           {this.state.logStatus && (

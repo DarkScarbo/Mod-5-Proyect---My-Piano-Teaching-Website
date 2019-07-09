@@ -11,7 +11,7 @@ class MySpace extends React.Component {
     bookings: [],
     videos: [],
     students: [],
-    activeItem: "bio"
+    activeItem: "home"
   };
 
   postMessageOnThePage = message => {
@@ -68,7 +68,8 @@ class MySpace extends React.Component {
             path="/mySpace/myBookings"
             component={() => (
               <Bookings
-                typeOfUser={this.state.typeOfUser}
+                students={this.state.students}
+                typeOfUser={this.props.typeOfUser}
                 bookings={this.state.bookings}
                 id={this.props.id}
                 postBookingOnThePage={this.postBookingOnThePage}
@@ -80,6 +81,8 @@ class MySpace extends React.Component {
             path="/mySpace/myVideos"
             component={() => (
               <Videos
+                students={this.state.students}
+                typeOfUser={this.props.typeOfUser}
                 videos={this.state.videos}
                 id={this.props.id}
                 postVideoOnThePage={this.postVideoOnThePage}
@@ -91,6 +94,7 @@ class MySpace extends React.Component {
             path="/mySpace/myMessages"
             component={() => (
               <Messages
+                students={this.state.students}
                 messages={this.state.messages}
                 id={this.props.id}
                 name={this.props.name}

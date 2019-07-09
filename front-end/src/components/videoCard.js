@@ -48,23 +48,21 @@ class VideoCard extends React.Component {
               )}
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
-              {this.props.showReviewForm ? (
-                <Form>
-                  <Form.Field>
-                    <label>URL</label>
-                    <input placeholder="URL" name="url" required />
-                  </Form.Field>
-                  <Form.Field>
-                    <label>Title</label>
-                    <input placeholder="Title" name="title" required />
-                  </Form.Field>
-                  <Form.TextArea
-                    label="Description"
-                    placeholder="Description"
-                    name="description"
-                  />
-                  <Button type="submit">Submit</Button>
-                </Form>
+              {this.props.typeOfUser === "teacher" ? (
+                this.props.video.review ? (
+                  <p>
+                    {this.props.video.review && this.props.video.review.text}
+                  </p>
+                ) : (
+                  <Form>
+                    <Form.TextArea
+                      label="Description"
+                      placeholder="Description"
+                      name="description"
+                    />
+                    <Button type="submit">Submit</Button>
+                  </Form>
+                )
               ) : (
                 <p>{this.props.video.review && this.props.video.review.text}</p>
               )}

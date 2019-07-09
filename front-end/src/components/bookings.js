@@ -29,8 +29,7 @@ class Bookings extends React.Component {
     const confirmed = "";
     const creator_id = this.props.id;
     const student_id = this.props.id;
-    postBooking(date, starting, ending, confirmed, creator_id, student_id)
-    .then(
+    postBooking(date, starting, ending, confirmed, creator_id, student_id).then(
       booking => this.props.postBookingOnThePage(booking)
     );
   };
@@ -38,31 +37,38 @@ class Bookings extends React.Component {
   render() {
     return (
       <div>
-        <Form onSubmit={this.handleSubmit}>
-          <DateInput
-            name="date"
-            placeholder="Date"
-            iconPosition="left"
-            value={this.state.date}
-            onChange={this.handleChange}
-          />
-          <TimeInput
-            name="starting"
-            placeholder="Time"
-            iconPosition="left"
-            value={this.state.starting}
-            onChange={this.handleChange}
-          />
-          <TimeInput
-            name="ending"
-            placeholder="Time"
-            iconPosition="left"
-            value={this.state.ending}
-            onChange={this.handleChange}
-          />
-          <Button>Submit</Button>
-        </Form>
+        {this.props.bookings && (
+          <Form onSubmit={this.handleSubmit}>
+            <DateInput
+              name="date"
+              placeholder="Date"
+              iconPosition="left"
+              value={this.state.date}
+              onChange={this.handleChange}
+            />
+            <TimeInput
+              name="starting"
+              placeholder="Starting Time"
+              iconPosition="left"
+              value={this.state.starting}
+              onChange={this.handleChange}
+            />
+            <TimeInput
+              name="ending"
+              placeholder="Ending Time"
+              iconPosition="left"
+              value={this.state.ending}
+              onChange={this.handleChange}
+            />
+            <Button>Submit</Button>
+          </Form>
+        )}
         <Grid columns="equal">
+          {this.props.typeOfUser === "teacher" && (
+            <Grid.Column width={4}>
+              <Segment>Student</Segment>
+            </Grid.Column>
+          )}
           <Grid.Column>
             <Segment>Date</Segment>
           </Grid.Column>
@@ -76,9 +82,20 @@ class Bookings extends React.Component {
             <Segment>Confirmed?</Segment>
           </Grid.Column>
         </Grid>
-        {this.props.bookings.map((booking, index) => (
-          <BookingCard key={index} booking={booking} />
-        ))}
+        {this.props.typeOfUser === "student"
+          ? this.props.bookings.map((booking, index) => (
+              <BookingCard key={index} booking={booking} />
+            ))
+          : this.props.students.map(student =>
+              student.my_bookings.map((booking, index) => (
+                <BookingCard
+                  students={this.props.students}
+                  key={index}
+                  booking={booking}
+                  typeOfUser={this.props.typeOfUser}
+                />
+              ))
+            )}
       </div>
     );
   }

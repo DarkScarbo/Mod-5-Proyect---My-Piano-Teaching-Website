@@ -3,6 +3,18 @@ import { Grid, Segment, Icon } from "semantic-ui-react";
 
 const BookingCard = props => (
   <Grid columns="equal">
+    {props.typeOfUser === "teacher" && (
+      <Grid.Column width={4}>
+        {props.students.map(
+          student =>
+            student.id === props.booking.student_id && (
+              <Segment>
+                {student.name} {student.email}
+              </Segment>
+            )
+        )}
+      </Grid.Column>
+    )}
     <Grid.Column>
       <Segment>{props.booking.date}</Segment>
     </Grid.Column>
