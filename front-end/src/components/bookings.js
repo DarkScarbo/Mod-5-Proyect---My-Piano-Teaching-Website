@@ -38,30 +38,32 @@ class Bookings extends React.Component {
     return (
       <div>
         {this.props.bookings && (
-          <Form onSubmit={this.handleSubmit}>
-            <DateInput
-              name="date"
-              placeholder="Date"
-              iconPosition="left"
-              value={this.state.date}
-              onChange={this.handleChange}
-            />
-            <TimeInput
-              name="starting"
-              placeholder="Starting Time"
-              iconPosition="left"
-              value={this.state.starting}
-              onChange={this.handleChange}
-            />
-            <TimeInput
-              name="ending"
-              placeholder="Ending Time"
-              iconPosition="left"
-              value={this.state.ending}
-              onChange={this.handleChange}
-            />
-            <Button>Submit</Button>
-          </Form>
+          <Segment>
+            <Form onSubmit={this.handleSubmit}>
+              <DateInput
+                name="date"
+                placeholder="Date"
+                iconPosition="left"
+                value={this.state.date}
+                onChange={this.handleChange}
+              />
+              <TimeInput
+                name="starting"
+                placeholder="Starting Time"
+                iconPosition="left"
+                value={this.state.starting}
+                onChange={this.handleChange}
+              />
+              <TimeInput
+                name="ending"
+                placeholder="Ending Time"
+                iconPosition="left"
+                value={this.state.ending}
+                onChange={this.handleChange}
+              />
+              <Button>Submit</Button>
+            </Form>
+          </Segment>
         )}
         <Grid columns="equal">
           {this.props.typeOfUser === "teacher" && (
@@ -84,7 +86,11 @@ class Bookings extends React.Component {
         </Grid>
         {this.props.typeOfUser === "student"
           ? this.props.bookings.map((booking, index) => (
-              <BookingCard key={index} booking={booking} />
+              <BookingCard
+                key={index}
+                booking={booking}
+                typeOfUser={this.props.typeOfUser}
+              />
             ))
           : this.props.students.map(student =>
               student.my_bookings.map((booking, index) => (

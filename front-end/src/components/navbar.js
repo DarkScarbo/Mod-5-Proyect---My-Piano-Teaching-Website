@@ -13,13 +13,6 @@ class Navbar extends React.Component {
   render() {
     return (
       <Menu secondary>
-        <Link to="/home">
-          <Menu.Item
-          name="home" 
-          // active={this.activeItem === "home"}
-           onClick={this.handleItemClick}
-           />
-        </Link>
         <Link to="/about">
           <Menu.Item
             name="about"
@@ -33,6 +26,13 @@ class Navbar extends React.Component {
             // active={this.activeItem === "reviews"}
             onClick={this.handleItemClick}
           />
+        </Link>
+        <Link to="/lessons">
+          <Menu.Item
+          name="lessons" 
+          // active={this.activeItem === "home"}
+           onClick={this.handleItemClick}
+           />
         </Link>
         <Link to="/contact">
           <Menu.Item

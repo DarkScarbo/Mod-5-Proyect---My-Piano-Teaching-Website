@@ -17,10 +17,13 @@ class VideoCard extends React.Component {
   };
 
   handleReviewSubmit = e => {
-    debugger;
-    const text = e.event.review.value;
-    const id = this.props.booking.id;
-    postReview(text).then(review => this.props.postReviewOnThePage(review));
+    e.preventDefault();
+    const text = e.target.review.value;
+    const video_id = this.props.video.id;
+    const teacher_id = this.props.id;
+    postReview(text, video_id, teacher_id).then(review =>
+      this.props.postReviewOnThePage(review)
+    );
   };
 
   render() {

@@ -69,11 +69,11 @@ export function updateBooking(confirmed, id) {
   }).then(resp => resp.json());
 }
 
-export function postReview(url, title, description, user_id) {
-  return fetch("http://localhost:3000/videos", {
+export function postReview(text, video_id, teacher_id) {
+  return fetch("http://localhost:3000/reviews", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ url, title, description, user_id })
+    body: JSON.stringify({ text, video_id, teacher_id })
   }).then(resp => resp.json());
 }
 
@@ -84,7 +84,8 @@ export default {
   postVideo,
   postBooking,
   postMessage,
-  updateBooking
+  updateBooking,
+  postReview
 };
 
 // fetch("http://localhost:3000/signup", {

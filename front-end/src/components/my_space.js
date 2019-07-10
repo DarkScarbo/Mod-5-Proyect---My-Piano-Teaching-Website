@@ -1,9 +1,11 @@
 import React from "react";
 import Messages from "./messages";
+import MessagesTeacher from "./messagesTeacher";
 import Bookings from "./bookings";
 import Videos from "./videos";
 import { Route, Switch } from "react-router-dom";
 import MySpaceNavbar from "./mySpaceNavbar";
+import { Segment } from "semantic-ui-react";
 
 class MySpace extends React.Component {
   state = {
@@ -12,6 +14,19 @@ class MySpace extends React.Component {
     videos: [],
     students: [],
     activeItem: "home"
+  };
+
+  postReviewOnThePage = review => {
+    const newstudents = this.state.students.map(
+      student =>
+        student.videos.map(video => {
+          if (video.id === review.video_id) {
+            video.review = review;
+          }
+          return student;
+        })[0]
+    );
+    this.setState({ students: newstudents });
   };
 
   updateBookingOnThePage = newBooking => {
@@ -27,7 +42,17 @@ class MySpace extends React.Component {
     this.setState({ students: newstudents });
   };
   postMessageOnThePage = message => {
-    this.setState({ messages: [...this.state.messages, message] });
+    if (this.state.messages) {
+      this.setState({ messages: [...this.state.messages, message] });
+    } else {
+      const newstudents = this.state.students.map(student => {
+        if (student.id === message.student_id) {
+          student.my_messages = [...student.my_messages, message];
+        }
+        return student;
+      });
+      this.setState({ students: newstudents });
+    }
   };
 
   postBookingOnThePage = booking => {
@@ -72,51 +97,63 @@ class MySpace extends React.Component {
   render() {
     return (
       <div>
-        Welcome to My Space {this.props.name}!
-        <MySpaceNavbar />
-        <Switch>
-          <Route
-            exact
-            path="/mySpace/myBookings"
-            component={() => (
-              <Bookings
-                students={this.state.students}
-                typeOfUser={this.props.typeOfUser}
-                bookings={this.state.bookings}
-                id={this.props.id}
-                postBookingOnThePage={this.postBookingOnThePage}
-                updateBookingOnThePage={this.updateBookingOnThePage}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/mySpace/myVideos"
-            component={() => (
-              <Videos
-                students={this.state.students}
-                typeOfUser={this.props.typeOfUser}
-                videos={this.state.videos}
-                id={this.props.id}
-                postVideoOnThePage={this.postVideoOnThePage}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/mySpace/myMessages"
-            component={() => (
-              <Messages
-                students={this.state.students}
-                messages={this.state.messages}
-                id={this.props.id}
-                name={this.props.name}
-                typeOfUser={this.props.typeOfUser}
-                postMessageOnThePage={this.postMessageOnThePage}
-              />
-            )}
-          />
-        </Switch>
+        <Segment>
+          Welcome to My Space {this.props.name}!
+          <MySpaceNavbar />
+          <Switch>
+            <Route
+              exact
+              path="/mySpace/myBookings"
+              component={() => (
+                <Bookings
+                  students={this.state.students}
+                  typeOfUser={this.props.typeOfUser}
+                  bookings={this.state.bookings}
+                  id={this.props.id}
+                  postBookingOnThePage={this.postBookingOnThePage}
+                  updateBookingOnThePage={this.updateBookingOnThePage}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/mySpace/myVideos"
+              component={() => (
+                <Videos
+                  students={this.state.students}
+                  typeOfUser={this.props.typeOfUser}
+                  videos={this.state.videos}
+                  id={this.props.id}
+                  postVideoOnThePage={this.postVideoOnThePage}
+                  postReviewOnThePage={this.postReviewOnThePage}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/mySpace/myMessages"
+              component={() =>
+                this.props.typeOfUser === "student" ? (
+                  <Messages
+                    messages={this.state.messages}
+                    id={this.props.id}
+                    name={this.props.name}
+                    typeOfUser={this.props.typeOfUser}
+                    postMessageOnThePage={this.postMessageOnThePage}
+                  />
+                ) : (
+                  <MessagesTeacher
+                    students={this.state.students}
+                    id={this.props.id}
+                    name={this.props.name}
+                    typeOfUser={this.props.typeOfUser}
+                    postMessageOnThePage={this.postMessageOnThePage}
+                  />
+                )
+              }
+            />
+          </Switch>
+        </Segment>
       </div>
     );
   }
