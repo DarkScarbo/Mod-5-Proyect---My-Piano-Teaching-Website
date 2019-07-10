@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     validates :email, uniqueness: true
     has_secure_password
-    has_many :videos
+    has_many :videos, foreign_key: "student_id"
     has_many :reviews
     has_many :messages
     has_many :bookings

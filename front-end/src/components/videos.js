@@ -9,8 +9,8 @@ class Videos extends React.Component {
     const url = e.target.url.value;
     const title = e.target.title.value;
     const description = e.target.description.value;
-    const user_id = this.props.id;
-    postVideo(url, title, description, user_id).then(video =>
+    const student_id = this.props.id;
+    postVideo(url, title, description, student_id).then(video =>
       this.props.postVideoOnThePage(video)
     );
   };

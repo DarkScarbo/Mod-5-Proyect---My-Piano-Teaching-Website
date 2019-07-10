@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Menu } from "semantic-ui-react";
-import WelcomeUser from "./welcome_user";
 
 
 class Navbar extends React.Component {

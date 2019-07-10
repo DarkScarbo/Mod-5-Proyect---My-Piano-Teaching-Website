@@ -14,7 +14,7 @@ class VideosController < ApplicationController
     end
 
     def create
-        video = Video.new(url: params[:url], title: params[:title], description: params[:description], user_id: params[:user_id])
+        video = Video.new(url: params[:url], title: params[:title], description: params[:description], student_id: params[:student_id])
         if video.save
           render json: video
         else

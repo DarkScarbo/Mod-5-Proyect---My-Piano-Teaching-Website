@@ -20,11 +20,11 @@ export function signUpApi(name, email, password) {
   }).then(resp => resp.json());
 }
 
-export function postVideo(url, title, description, user_id) {
+export function postVideo(url, title, description, student_id) {
   return fetch("http://localhost:3000/videos", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ url, title, description, user_id })
+    body: JSON.stringify({ url, title, description, student_id })
   }).then(resp => resp.json());
 }
 
