@@ -1,5 +1,14 @@
 import React from "react";
 import { logInApi, signUpApi } from "../services/api";
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Icon,
+  Message,
+  Segment
+} from "semantic-ui-react";
 
 class SignUpLogInForm extends React.Component {
   state = {
@@ -40,69 +49,150 @@ class SignUpLogInForm extends React.Component {
           }
         });
       } else {
-        alert("Your passwords do not match");
+        alert("Your passwords don't match!");
       }
     }
   };
 
   render() {
     return (
-      <div>
-        {this.state.logStatus ? (
-          <button onClick={this.changeLogStatus}>Or Log In</button>
-        ) : (
-          <button onClick={this.changeLogStatus}>Or Sign Up</button>
-        )}
-        <form onSubmit={this.handleSubmit} name="form">
-          {this.state.logStatus && (
-            <div>
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                name="username"
+      // <div>
+      //   {this.state.logStatus ? (
+      //     <button onClick={this.changeLogStatus}>Or Log In</button>
+      //   ) : (
+      //     <button onClick={this.changeLogStatus}>Or Sign Up</button>
+      //   )}
+      //   <form onSubmit={this.handleSubmit} name="form">
+      //     {this.state.logStatus && (
+      //       <div>
+      //         <label htmlFor="username">User name</label>
+      //         <input
+      //           type="text"
+      //           name="username"
+      //           required
+      //           // onChange={this.handleChange}
+      //         />
+      //       </div>
+      //     )}
+      //     <div>
+      //       <label htmlFor="email">Email</label>
+      //       <input
+      //         type="text"
+      //         name="email"
+      //         required
+      //         // onChange={this.handleChange}
+      //       />
+      //     </div>
+      //     <div>
+      //       <label htmlFor="password">Password</label>
+      //       <input
+      //         type="password"
+      //         name="password"
+      //         // onChange={this.handleChange}
+      //       />
+      //     </div>
+      //     {this.state.logStatus && (
+      //       <div>
+      //         <label htmlFor="password_confirmation">
+      //           Password Confirmation
+      //         </label>
+      //         <input
+      //           type="password"
+      //           name="password_confirmation"
+      //           // onChange={this.handleChange}
+      //         />
+      //       </div>
+      //     )}
+      //     <div>
+      //       {this.state.logStatus ? (
+      //         <button>Signup</button>
+      //       ) : (
+      //         <button>Login</button>
+      //       )}
+      //     </div>
+      //   </form>
+      <Grid
+        textAlign="center"
+        style={{ height: "100vh" }}
+        verticalAlign="middle"
+      >
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as="h2" textAlign="center">
+            <Icon name="music" /> Access your account!
+          </Header>
+          <Form size="large" onSubmit={this.handleSubmit}>
+            <Segment stacked>
+              {this.state.logStatus && (
+                <Form.Input
+                  fluid
+                  icon="user"
+                  iconPosition="left"
+                  placeholder="User Name"
+                  name="username"
+                  required
+                />
+              )}
+              <Form.Input
+                fluid
+                icon="user"
+                iconPosition="left"
+                placeholder="E-mail address"
+                name="email"
                 required
-                // onChange={this.handleChange}
               />
-            </div>
-          )}
-          <div>
-            <label htmlFor="email">Email</label>
-            <input
-              type="text"
-              name="email"
-              required
-              // onChange={this.handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              // onChange={this.handleChange}
-            />
-          </div>
-          {this.state.logStatus && (
-            <div>
-              <label htmlFor="password_confirmation">
-                Password Confirmation
-              </label>
-              <input
+              <Form.Input
+                fluid
+                icon="lock"
+                iconPosition="left"
+                placeholder="Password"
                 type="password"
-                name="password_confirmation"
-                // onChange={this.handleChange}
+                name="password"
               />
-            </div>
-          )}
-          <div>
+              {this.state.logStatus && (
+                <Form.Input
+                  fluid
+                  icon="lock"
+                  iconPosition="left"
+                  placeholder="Confirm Password"
+                  type="password"
+                  name="password_confirmation"
+                />
+              )}
+              {this.state.logStatus ? (
+                <Button color="blue" fluid size="large">
+                  Sign Up
+                </Button>
+              ) : (
+                <Button color="blue" fluid size="large">
+                  Log in
+                </Button>
+              )}
+            </Segment>
+          </Form>
+          <Message>
             {this.state.logStatus ? (
-              <button>Signup</button>
+              <Button
+                color="teal"
+                fluid
+                size="large"
+                onClick={this.changeLogStatus}
+              >
+                Or Log In
+              </Button>
             ) : (
-              <button>Login</button>
+              <Button
+                color="teal"
+                fluid
+                size="large"
+                onClick={this.changeLogStatus}
+              >
+                Or Sign Up
+              </Button>
             )}
-          </div>
-        </form>
-      </div>
+          </Message>
+        </Grid.Column>
+      </Grid>
+      // </div>
     );
   }
 }

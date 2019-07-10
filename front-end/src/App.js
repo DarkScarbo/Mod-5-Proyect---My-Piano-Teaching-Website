@@ -20,6 +20,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    this.props.history.push("/about");
     if (localStorage.token) {
       validate().then(user => {
         if (user.error) {
@@ -44,7 +45,7 @@ class App extends React.Component {
 
   logOut = () => {
     this.setState({ name: "", logedIn: false });
-    this.props.history.push("/");
+    this.props.history.push("/about");
     localStorage.removeItem("token");
   };
 

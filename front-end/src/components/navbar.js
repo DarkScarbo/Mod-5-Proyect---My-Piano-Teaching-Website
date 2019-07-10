@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Menu } from "semantic-ui-react";
-
+import { Menu, Container } from "semantic-ui-react";
 
 class Navbar extends React.Component {
-  state = { 
-    activeItem: "home" 
+  state = {
+    activeItem: "home"
   };
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
@@ -13,76 +12,86 @@ class Navbar extends React.Component {
   render() {
     return (
       <Menu secondary>
-        <Link to="/about">
-          <Menu.Item
-            name="about"
-            // active={this.activeItem === "messages"}
-            onClick={this.handleItemClick}
-          />
-        </Link>
-        <Link to="/reviews">
-          <Menu.Item
-            name="reviews"
-            // active={this.activeItem === "reviews"}
-            onClick={this.handleItemClick}
-          />
-        </Link>
-        <Link to="/lessons">
-          <Menu.Item
-          name="lessons" 
-          // active={this.activeItem === "home"}
-           onClick={this.handleItemClick}
-           />
-        </Link>
-        <Link to="/contact">
-          <Menu.Item
-            name="Contact"
-            // active={this.activeItem === "contact"}
-            onClick={this.handleItemClick}
-          />
-        </Link>
-        {this.props.logedIn && (
-          <Link to="/mySpace">
+        <Container>
+          <Link to="/about">
             <Menu.Item
-              name="My Space"
-              // active={this.activeItem === "mySpace"}
+              header
+              name="about"
+              // active={this.activeItem === "messages"}
               onClick={this.handleItemClick}
             />
           </Link>
-        )}
-        {this.props.logedIn
-        ?
-        <Menu.Menu position="right">
+          <Link to="/reviews">
             <Menu.Item
-              name="Log out"
-            // active={this.activeItem === "contact"}
-            onClick={this.props.logOut}
+              header
+              name="reviews"
+              // active={this.activeItem === "reviews"}
+              onClick={this.handleItemClick}
             />
-            </Menu.Menu>
-        : <Menu.Menu position="right">
-            <Link to="/signuporlogin">
+          </Link>
+          <Link to="/lessons">
+            <Menu.Item
+              header
+              name="lessons"
+              // active={this.activeItem === "home"}
+              onClick={this.handleItemClick}
+            />
+          </Link>
+          <Link to="/contact">
+            <Menu.Item
+              header
+              name="Contact"
+              // active={this.activeItem === "contact"}
+              onClick={this.handleItemClick}
+            />
+          </Link>
+          {this.props.logedIn && (
+            <Link to="/mySpace">
               <Menu.Item
-                name="Sign up or Log in"
-                // active={this.activeItem === "contact"}
+                header
+                name="My Space"
+                // active={this.activeItem === "mySpace"}
                 onClick={this.handleItemClick}
               />
             </Link>
-          </Menu.Menu>}
+          )}
+          {this.props.logedIn ? (
+            <Menu.Menu position="right">
+              <Menu.Item
+                header
+                name="Log out"
+                // active={this.activeItem === "contact"}
+                onClick={this.props.logOut}
+              />
+            </Menu.Menu>
+          ) : (
+            <Menu.Menu position="right" header>
+              <Link to="/signuporlogin">
+                <Menu.Item
+                  name="Sign up or Log in"
+                  // active={this.activeItem === "contact"}
+                  onClick={this.handleItemClick}
+                />
+              </Link>
+            </Menu.Menu>
+          )}
+        </Container>
       </Menu>
     );
   }
 }
 export default Navbar;
 
-
-{/* <Menu.Menu position="right">
+{
+  /* <Menu.Menu position="right">
           <UserContainer
             logIn={this.props.logIn}
             logOut={this.props.logOut}
             logedIn={this.props.logedIn}
             name={this.props.name}
           />
-        </Menu.Menu> */}
+        </Menu.Menu> */
+}
 
 // {
 /* <Link to="/home">Home</Link>
