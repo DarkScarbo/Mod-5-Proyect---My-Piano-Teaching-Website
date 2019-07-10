@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
     def show
         booking = Booking.find_by(id: params[:id])
-        if user
+        if booking
             render json: booking
         else
             render json: {error: "Booking not found."}, status: 404
@@ -21,5 +21,13 @@ class BookingsController < ApplicationController
           render json: {errors: booking.errors.full_messages}, status: 400
         end
     end
+
+    def update
+        booking = Booking.find_by(id: params[:id])
+        if booking.update(confirmed: params[:confirmed])
+            render json: booking
+        end
+    end
+
 
 end

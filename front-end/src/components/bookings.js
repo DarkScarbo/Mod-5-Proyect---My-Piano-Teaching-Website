@@ -93,6 +93,7 @@ class Bookings extends React.Component {
                   key={index}
                   booking={booking}
                   typeOfUser={this.props.typeOfUser}
+                  updateBookingOnThePage={this.props.updateBookingOnThePage}
                 />
               ))
             )}

@@ -14,6 +14,18 @@ class MySpace extends React.Component {
     activeItem: "home"
   };
 
+  updateBookingOnThePage = newBooking => {
+    const newstudents = this.state.students.map(
+      student =>
+        student.my_bookings.map((booking, index) => {
+          if (newBooking.id === booking.id) {
+            student.my_bookings[index] = newBooking;
+          }
+          return student;
+        })[0]
+    );
+    this.setState({ students: newstudents });
+  };
   postMessageOnThePage = message => {
     this.setState({ messages: [...this.state.messages, message] });
   };
@@ -73,6 +85,7 @@ class MySpace extends React.Component {
                 bookings={this.state.bookings}
                 id={this.props.id}
                 postBookingOnThePage={this.postBookingOnThePage}
+                updateBookingOnThePage={this.updateBookingOnThePage}
               />
             )}
           />

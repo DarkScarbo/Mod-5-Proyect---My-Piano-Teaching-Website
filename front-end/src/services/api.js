@@ -59,6 +59,23 @@ export function postMessage(text, creator_id, student_id, teacher_id) {
     body: JSON.stringify({ text, creator_id, student_id, teacher_id })
   }).then(resp => resp.json());
 }
+export function updateBooking(confirmed, id) {
+  return fetch("http://localhost:3000/bookings" + `/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ confirmed: confirmed })
+  }).then(resp => resp.json());
+}
+
+export function postReview(url, title, description, user_id) {
+  return fetch("http://localhost:3000/videos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ url, title, description, user_id })
+  }).then(resp => resp.json());
+}
 
 export default {
   logInApi,
@@ -66,7 +83,8 @@ export default {
   validate,
   postVideo,
   postBooking,
-  postMessage
+  postMessage,
+  updateBooking
 };
 
 // fetch("http://localhost:3000/signup", {

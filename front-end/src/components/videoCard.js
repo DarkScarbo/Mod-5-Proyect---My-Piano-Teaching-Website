@@ -1,5 +1,6 @@
 import React from "react";
 import YouTube from "react-youtube";
+import { postReview } from "../services/api";
 import { Card, Accordion, Icon, Form, Button } from "semantic-ui-react";
 
 class VideoCard extends React.Component {
@@ -13,6 +14,13 @@ class VideoCard extends React.Component {
     const newIndex = activeIndex === index ? -1 : index;
 
     this.setState({ activeIndex: newIndex });
+  };
+
+  handleReviewSubmit = e => {
+    debugger;
+    const text = e.event.review.value;
+    const id = this.props.booking.id;
+    postReview(text).then(review => this.props.postReviewOnThePage(review));
   };
 
   render() {
@@ -54,11 +62,11 @@ class VideoCard extends React.Component {
                     {this.props.video.review && this.props.video.review.text}
                   </p>
                 ) : (
-                  <Form>
+                  <Form onSubmit={this.handleReviewSubmit}>
                     <Form.TextArea
-                      label="Description"
-                      placeholder="Description"
-                      name="description"
+                      label="Review"
+                      placeholder="Review"
+                      name="review"
                     />
                     <Button type="submit">Submit</Button>
                   </Form>
