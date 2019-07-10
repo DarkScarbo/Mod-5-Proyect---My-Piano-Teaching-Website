@@ -11,7 +11,12 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <Menu secondary>
+      <Menu
+        inverted
+        color="blue"
+        secondary
+        style={{ marginTop: 50, marginBottom: 50 }}
+      >
         <Container>
           <Link to="/about">
             <Menu.Item

@@ -3,7 +3,7 @@ import { Container, Header, List, Segment, Image } from "semantic-ui-react";
 const About = props => {
   return (
     <div style={{ textAlign: "justify" }}>
-      <Segment>
+      <Segment secondary>
         <Container text>
           <Header as="h2" textAlign="center">
             About

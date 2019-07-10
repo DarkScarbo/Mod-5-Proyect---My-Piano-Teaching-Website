@@ -56,64 +56,9 @@ class SignUpLogInForm extends React.Component {
 
   render() {
     return (
-      // <div>
-      //   {this.state.logStatus ? (
-      //     <button onClick={this.changeLogStatus}>Or Log In</button>
-      //   ) : (
-      //     <button onClick={this.changeLogStatus}>Or Sign Up</button>
-      //   )}
-      //   <form onSubmit={this.handleSubmit} name="form">
-      //     {this.state.logStatus && (
-      //       <div>
-      //         <label htmlFor="username">User name</label>
-      //         <input
-      //           type="text"
-      //           name="username"
-      //           required
-      //           // onChange={this.handleChange}
-      //         />
-      //       </div>
-      //     )}
-      //     <div>
-      //       <label htmlFor="email">Email</label>
-      //       <input
-      //         type="text"
-      //         name="email"
-      //         required
-      //         // onChange={this.handleChange}
-      //       />
-      //     </div>
-      //     <div>
-      //       <label htmlFor="password">Password</label>
-      //       <input
-      //         type="password"
-      //         name="password"
-      //         // onChange={this.handleChange}
-      //       />
-      //     </div>
-      //     {this.state.logStatus && (
-      //       <div>
-      //         <label htmlFor="password_confirmation">
-      //           Password Confirmation
-      //         </label>
-      //         <input
-      //           type="password"
-      //           name="password_confirmation"
-      //           // onChange={this.handleChange}
-      //         />
-      //       </div>
-      //     )}
-      //     <div>
-      //       {this.state.logStatus ? (
-      //         <button>Signup</button>
-      //       ) : (
-      //         <button>Login</button>
-      //       )}
-      //     </div>
-      //   </form>
       <Grid
         textAlign="center"
-        style={{ height: "100vh" }}
+        style={{ height: "70vh" }}
         verticalAlign="middle"
       >
         <Grid.Column style={{ maxWidth: 450 }}>

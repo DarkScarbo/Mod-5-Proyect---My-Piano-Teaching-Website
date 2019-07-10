@@ -5,7 +5,7 @@ import Bookings from "./bookings";
 import Videos from "./videos";
 import { Route, Switch } from "react-router-dom";
 import MySpaceNavbar from "./mySpaceNavbar";
-import { Segment } from "semantic-ui-react";
+import { Segment, Header } from "semantic-ui-react";
 
 class MySpace extends React.Component {
   state = {
@@ -97,8 +97,10 @@ class MySpace extends React.Component {
   render() {
     return (
       <div>
-        <Segment>
-          Welcome to My Space {this.props.name}!
+        <Segment color="blue" secondary>
+          <Header as="h2" textAlign="center">
+            Welcome to My Space {this.props.name}!
+          </Header>
           <MySpaceNavbar />
           <Switch>
             <Route
