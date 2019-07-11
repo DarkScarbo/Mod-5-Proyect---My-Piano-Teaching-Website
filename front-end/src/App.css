@@ -9,6 +9,7 @@ body {
 
 .Ondine-backgroung {
   background-image: url("./Images/Ondine.png");
+  /* padding-right: 12px; */
   /* -webkit-background-size: 900px, 850px; */
 }
 

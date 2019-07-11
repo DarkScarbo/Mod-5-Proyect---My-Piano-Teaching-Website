@@ -5,10 +5,10 @@ const Reviews = props => {
   return (
     <div style={{ textAlign: "justify" }}>
       <Container text style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}>
-        <Header as="h2" textAlign="center">
+        <Header as="h1" textAlign="center">
           Reviews
         </Header>
-        <Segment color="blue" secondary>
+        <Segment color="blue" secondary style={{ paddingLeft: "0" }}>
           <Image
             src={require("../Images/Harriet.jpg")}
             size="small"
@@ -22,6 +22,7 @@ const Reviews = props => {
           </p>
         </Segment>
         <Image
+          style={{ paddingRight: "1px" }}
           className="Front-image"
           src={require("../Images/Fran.jpg")}
           size="small"
@@ -32,7 +33,7 @@ const Reviews = props => {
           Xabi really helped me to improve my piano skills. He tought me how to
           improvise, a skill I never had untill I met him.
         </p>
-        <Segment color="teal">
+        <Segment color="teal" style={{ paddingLeft: "0" }}>
           <Image
             src={require("../Images/James.jpg")}
             size="small"
@@ -46,6 +47,7 @@ const Reviews = props => {
           </p>
         </Segment>
         <Image
+          style={{ paddingRight: "1px" }}
           className="Front-image"
           src={require("../Images/Dunia.jpg")}
           size="small"
@@ -56,7 +58,7 @@ const Reviews = props => {
           He is a brilliant teacher and better person. I have improved so much
           since I started his classes. Highly recommended!
         </p>
-        <Segment color="blue" secondary>
+        <Segment color="blue" secondary style={{ paddingLeft: "0" }}>
           <Image
             src={require("../Images/Chechi.jpg")}
             size="small"
@@ -71,6 +73,7 @@ const Reviews = props => {
           </p>
         </Segment>
         <Image
+          style={{ paddingRight: "1px" }}
           className="Front-image"
           src={require("../Images/Ayush.png")}
           size="small"
@@ -82,7 +85,7 @@ const Reviews = props => {
           som pop songs and at the same time made my improved my posture. I
           don't have back pain anymore!
         </p>
-        <Segment color="teal" secondary>
+        <Segment color="teal" secondary style={{ paddingLeft: "0" }}>
           <Image
             src={require("../Images/Ana.jpg")}
             size="small"

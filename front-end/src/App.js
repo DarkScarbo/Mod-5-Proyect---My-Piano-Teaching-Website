@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Home from "./components/home";
 import Reviews from "./components/reviews";
 import About from "./components/about";
 import Navbar from "./components/navbar";
@@ -59,7 +58,6 @@ class App extends React.Component {
           name={this.state.name}
         />
         <Switch>
-          <Route exact path="/home" component={() => <Home />} />
           <Route exact path="/about" component={() => <About />} />
           <Route exact path="/lessons" component={() => <Lessons />} />
           <Route exact path="/reviews" component={() => <Reviews />} />

@@ -5,7 +5,7 @@ const About = props => {
     <div style={{ textAlign: "justify" }} className="Ondine-backgroung">
       {/* <Segment secondary> */}
       <Container text>
-        <Header as="h2" textAlign="center">
+        <Header as="h1" textAlign="center">
           About
         </Header>
         <Segment secondary>

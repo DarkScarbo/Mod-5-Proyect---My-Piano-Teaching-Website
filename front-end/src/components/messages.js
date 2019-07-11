@@ -20,13 +20,14 @@ class Messages extends React.Component {
       creator_id = this.props.teacherId;
     }
     postMessage(text, creator_id, student_id, teacher_id).then(message =>
-      this.props.postMessageOnThePage(message)
+      // this.props.postMessageOnThePage(message)
+      console.log(message)
     );
   };
 
   render() {
     return (
-      <Comment.Group minimal>
+      <Comment.Group minimal style={{ margin: "1.5em auto" }}>
         <Header as="h3" dividing>
           Messages
         </Header>
