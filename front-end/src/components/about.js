@@ -8,7 +8,7 @@ const About = props => {
         <Header as="h2" textAlign="center">
           About
         </Header>
-        <Segment>
+        <Segment secondary>
           <Image
             src={require("../Images/Xabi.jpg")}
             size="small"
@@ -29,7 +29,7 @@ const About = props => {
           <p>
             I started my own professional studies at the Conservatoire "Juan
             Crisóstomo de Arriaga" in Bilbao, followed by the renowned
-            Conservatoire "Musekene" in San Sebastián for 5 years, studying
+            Conservatoire "Musikene" in San Sebastián for 5 years, studying
             under Gustavo Díaz-Jerez and reaching Grado Superior. I followed
             this with a Masters in Musical Interpretation and Research at VIU in
             Valencia under Eugen Indic and Francisco Escoda Padrón at the same
