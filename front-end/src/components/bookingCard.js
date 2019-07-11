@@ -33,7 +33,7 @@ class BookingCard extends React.Component {
             {this.props.students.map(
               student =>
                 student.id === this.props.booking.student_id && (
-                  <Segment>
+                  <Segment key={student.id}>
                     {student.name} {student.email}
                   </Segment>
                 )

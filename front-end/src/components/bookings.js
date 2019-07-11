@@ -70,30 +70,20 @@ class Bookings extends React.Component {
         <Grid padded columns="equal">
           {this.props.typeOfUser === "teacher" && (
             <Grid.Column width={4}>
-              <Segment inverted color="teal" secondary>
-                Student
-              </Segment>
+              <Segment tertiary>Student</Segment>
             </Grid.Column>
           )}
           <Grid.Column>
-            <Segment inverted color="teal" secondary>
-              Date
-            </Segment>
+            <Segment tertiary>Date</Segment>
           </Grid.Column>
           <Grid.Column>
-            <Segment inverted color="teal" secondary>
-              Starting Time
-            </Segment>
+            <Segment tertiary>Starting Time</Segment>
           </Grid.Column>
           <Grid.Column>
-            <Segment inverted color="teal" secondary>
-              Ending time
-            </Segment>
+            <Segment tertiary>Ending time</Segment>
           </Grid.Column>
           <Grid.Column>
-            <Segment inverted color="teal" secondary>
-              Status
-            </Segment>
+            <Segment tertiary>Status</Segment>
           </Grid.Column>
         </Grid>
         {this.props.typeOfUser === "student"

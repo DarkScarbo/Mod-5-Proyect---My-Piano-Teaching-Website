@@ -32,8 +32,9 @@ class Messages extends React.Component {
         </Header>
         <Segment>
           {this.props.messages &&
-            this.props.messages.map(message => (
+            this.props.messages.map((message, index) => (
               <MessageCard
+                key={index}
                 message={message}
                 name={this.props.name}
                 id={this.props.id}

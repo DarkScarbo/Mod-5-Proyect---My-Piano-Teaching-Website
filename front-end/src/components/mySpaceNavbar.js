@@ -13,16 +13,25 @@ class MySpaceNavbar extends React.Component {
     return (
       <div>
         <Menu attached="top" tabular>
-          <Link to="/mySpace/myBookings">
-            <Menu.Item name="My Bookings" onClick={this.handleItemClick} />
-          </Link>
-          <Link to="/mySpace/myVideos">
-            <Menu.Item name="My Videos" onClick={this.handleItemClick} />
-          </Link>
+          <Menu.Item
+            as={Link}
+            to="/mySpace/myBookings"
+            name="My Bookings"
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            as={Link}
+            to="/mySpace/myVideos"
+            name="My Videos"
+            onClick={this.handleItemClick}
+          />
           <Menu.Menu position="left" />
-          <Link to="/mySpace/myMessages">
-            <Menu.Item name="My Messages" onClick={this.handleItemClick} />
-          </Link>
+          <Menu.Item
+            as={Link}
+            to="/mySpace/myMessages"
+            name="My Messages"
+            onClick={this.handleItemClick}
+          />
         </Menu>
       </div>
     );

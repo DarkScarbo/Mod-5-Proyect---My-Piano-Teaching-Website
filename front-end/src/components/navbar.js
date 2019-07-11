@@ -18,66 +18,56 @@ class Navbar extends React.Component {
         style={{ marginTop: 50, marginBottom: 50 }}
       >
         <Container>
-          <Link to="/about">
-            <Menu.Item
-              header
-              name="about"
-              // active={this.activeItem === "messages"}
-              onClick={this.handleItemClick}
-            />
-          </Link>
-          <Link to="/reviews">
-            <Menu.Item
-              header
-              name="reviews"
-              // active={this.activeItem === "reviews"}
-              onClick={this.handleItemClick}
-            />
-          </Link>
-          <Link to="/lessons">
-            <Menu.Item
-              header
-              name="lessons"
-              // active={this.activeItem === "home"}
-              onClick={this.handleItemClick}
-            />
-          </Link>
-          <Link to="/contact">
-            <Menu.Item
-              header
-              name="Contact"
-              // active={this.activeItem === "contact"}
-              onClick={this.handleItemClick}
-            />
-          </Link>
+          <Menu.Item
+            as={Link}
+            to="/about"
+            header
+            name="about"
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            as={Link}
+            to="/reviews"
+            header
+            name="reviews"
+            onClick={this.handleItemClick}
+          />
+
+          <Menu.Item
+            as={Link}
+            to="/lessons"
+            header
+            name="lessons"
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            as={Link}
+            to="/contact"
+            header
+            name="Contact"
+            onClick={this.handleItemClick}
+          />
           {this.props.logedIn && (
-            <Link to="/mySpace">
-              <Menu.Item
-                header
-                name="My Space"
-                // active={this.activeItem === "mySpace"}
-                onClick={this.handleItemClick}
-              />
-            </Link>
+            <Menu.Item
+              as={Link}
+              to="/mySpace"
+              header
+              name="My Space"
+              onClick={this.handleItemClick}
+            />
           )}
           {this.props.logedIn ? (
             <Menu.Menu position="right">
-              <Menu.Item
-                header
-                name="Log out"
-                // active={this.activeItem === "contact"}
-                onClick={this.props.logOut}
-              />
+              <Menu.Item header name="Log out" onClick={this.props.logOut} />
             </Menu.Menu>
           ) : (
             <Menu.Menu position="right" header>
-              <Link to="/signuporlogin">
-                <Menu.Item
-                  name="Sign up or Log in"
-                  // active={this.activeItem === "contact"}
-                  onClick={this.handleItemClick}
-                />
-              </Link>
+              <Menu.Item
+                as={Link}
+                to="/signuporlogin"
+                name="Sign up or Log in"
+                onClick={this.handleItemClick}
+              />
             </Menu.Menu>
           )}
         </Container>
@@ -86,29 +76,3 @@ class Navbar extends React.Component {
   }
 }
 export default Navbar;
-
-{
-  /* <Menu.Menu position="right">
-          <UserContainer
-            logIn={this.props.logIn}
-            logOut={this.props.logOut}
-            logedIn={this.props.logedIn}
-            name={this.props.name}
-          />
-        </Menu.Menu> */
-}
-
-// {
-/* <Link to="/home">Home</Link>
-    <Link to="/about">About</Link>
-    <Link to="/reviews">Review</Link>
-    <Link to="/lessons">Lessons</Link>
-    <Link to="/contact">Contact</Link>
-    {props.logedIn && <Link to="/mySpace">My Space</Link>}
-    <UserContainer
-      logIn={props.logIn}
-      logOut={props.logOut}
-      logedIn={props.logedIn}
-      name={props.name}
-    /> */
-// }

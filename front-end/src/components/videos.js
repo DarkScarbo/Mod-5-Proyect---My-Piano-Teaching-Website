@@ -1,6 +1,6 @@
 import React from "react";
 import VideoCard from "./videoCard";
-import { Button, Form, Segment, Input } from "semantic-ui-react";
+import { Button, Form, Segment } from "semantic-ui-react";
 import { postVideo } from "../services/api";
 
 class Videos extends React.Component {
@@ -67,14 +67,3 @@ class Videos extends React.Component {
 }
 
 export default Videos;
-{
-  /* {this.props.typeOfUser === "student"
-        ? this.props.videos.map((video, index) => (
-          <VideoCard
-            key={index}
-            video={video}
-            typeOfUser={this.props.typeOfUser}
-          />
-          : "yui"
-        } */
-}
