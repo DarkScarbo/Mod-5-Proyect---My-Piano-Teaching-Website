@@ -16,9 +16,9 @@ const Reviews = props => {
           />
           <h2>Harriet</h2>
           <p className="p-review">
-            He has been my piano teacher for the last 4 years. I learn how to be
-            pacient, looking to details while studing and not to lose my time on
-            the piano.
+            He has been my piano teacher for the last 4 years. I've learnt how
+            to be patient, pay attention to the details while studying, and keep
+            time.
           </p>
         </Segment>
         <Image
@@ -30,8 +30,8 @@ const Reviews = props => {
         />
         <h2 className="Text-right">Fran</h2>
         <p className="p-review">
-          Xabi really helped me to improve my piano skills. He tought me how to
-          improvise, a skill I never had untill I met him.
+          Xabi really helped me to improve my piano skills. He taught me how to
+          improvise, a skill I never had until I met him.
         </p>
         <Segment color="teal" style={{ paddingLeft: "0" }}>
           <Image
@@ -41,9 +41,9 @@ const Reviews = props => {
           />
           <h2>James</h2>
           <p className="p-review">
-            I startded doing the ABRSM grades with him three years ago and I
-            couldn't be more happy. He always gets you to have always a positive
-            actitude, even if you don't feel like in the beggining.
+            I started doing the ABRSM grades with him three years ago and I
+            couldn't be happier. He always encourages a positive attitude, even
+            if you don't feel like it the beginning.
           </p>
         </Segment>
         <Image
@@ -55,8 +55,8 @@ const Reviews = props => {
         />
         <h2 className="Text-right">Dunia</h2>
         <p className="p-review">
-          He is a brilliant teacher and better person. I have improved so much
-          since I started his classes. Highly recommended!
+          He is a brilliant teacher and even better person. I have improved so
+          much since I started his classes. Highly recommended!
         </p>
         <Segment color="blue" secondary style={{ paddingLeft: "0" }}>
           <Image
@@ -82,7 +82,7 @@ const Reviews = props => {
         <h2 className="Text-right">Ayush</h2>
         <p className="p-review">
           Despite my little technique in the beggining, he taught me how to play
-          som pop songs and at the same time made my improved my posture. I
+          some pop songs and at the same time made me improved my posture. I
           don't have back pain anymore!
         </p>
         <Segment color="teal" secondary style={{ paddingLeft: "0" }}>
@@ -93,9 +93,9 @@ const Reviews = props => {
           />
           <h2>Ana</h2>
           <p className="p-review">
-            He is very versatile as a teacher. I leant how to play jazz piano
-            piaces with him while leaarning classical and jazz harmony to make
-            accompainements.
+            He is very versatile as a teacher. I learnt how to play jazz piano
+            piaces with him while learning classical and jazz harmony to make
+            accompaniments.
           </p>
         </Segment>
       </Container>

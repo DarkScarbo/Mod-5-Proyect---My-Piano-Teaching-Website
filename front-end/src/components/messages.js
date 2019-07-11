@@ -20,9 +20,7 @@ class Messages extends React.Component {
       creator_id = this.props.teacherId;
     }
     postMessage(text, creator_id, student_id, teacher_id).then(message =>
-      // this.props.postMessageOnThePage(message)
-      console.log(message)
-    );
+      this.props.postMessageOnThePage(message)    );
   };
 
   render() {
