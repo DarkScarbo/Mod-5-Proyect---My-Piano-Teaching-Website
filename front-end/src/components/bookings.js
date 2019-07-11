@@ -39,49 +39,61 @@ class Bookings extends React.Component {
       <div>
         {this.props.bookings && (
           <Segment>
-            <Form onSubmit={this.handleSubmit}>
-              <DateInput
-                name="date"
-                placeholder="Date"
-                iconPosition="left"
-                value={this.state.date}
-                onChange={this.handleChange}
-              />
-              <TimeInput
-                name="starting"
-                placeholder="Starting Time"
-                iconPosition="left"
-                value={this.state.starting}
-                onChange={this.handleChange}
-              />
-              <TimeInput
-                name="ending"
-                placeholder="Ending Time"
-                iconPosition="left"
-                value={this.state.ending}
-                onChange={this.handleChange}
-              />
-              <Button>Submit</Button>
+            <Form widths="equal" onSubmit={this.handleSubmit}>
+              <Form.Group widths="equal">
+                <DateInput
+                  name="date"
+                  placeholder="Date"
+                  iconPosition="left"
+                  value={this.state.date}
+                  onChange={this.handleChange}
+                />
+                <TimeInput
+                  name="starting"
+                  placeholder="Starting Time"
+                  iconPosition="left"
+                  value={this.state.starting}
+                  onChange={this.handleChange}
+                />
+                <TimeInput
+                  name="ending"
+                  placeholder="Ending Time"
+                  iconPosition="left"
+                  value={this.state.ending}
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+              <Button color="blue">Submit</Button>
             </Form>
           </Segment>
         )}
-        <Grid columns="equal">
+        <Grid padded columns="equal">
           {this.props.typeOfUser === "teacher" && (
             <Grid.Column width={4}>
-              <Segment>Student</Segment>
+              <Segment inverted color="teal" secondary>
+                Student
+              </Segment>
             </Grid.Column>
           )}
           <Grid.Column>
-            <Segment>Date</Segment>
+            <Segment inverted color="teal" secondary>
+              Date
+            </Segment>
           </Grid.Column>
           <Grid.Column>
-            <Segment>Starting Time</Segment>
+            <Segment inverted color="teal" secondary>
+              Starting Time
+            </Segment>
           </Grid.Column>
           <Grid.Column>
-            <Segment>Ending time</Segment>
+            <Segment inverted color="teal" secondary>
+              Ending time
+            </Segment>
           </Grid.Column>
           <Grid.Column>
-            <Segment>Confirmed?</Segment>
+            <Segment inverted color="teal" secondary>
+              Status
+            </Segment>
           </Grid.Column>
         </Grid>
         {this.props.typeOfUser === "student"

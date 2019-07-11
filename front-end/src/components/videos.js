@@ -1,6 +1,6 @@
 import React from "react";
 import VideoCard from "./videoCard";
-import { Button, Form, Segment } from "semantic-ui-react";
+import { Button, Form, Segment, Input } from "semantic-ui-react";
 import { postVideo } from "../services/api";
 
 class Videos extends React.Component {
@@ -21,20 +21,24 @@ class Videos extends React.Component {
         {this.props.typeOfUser === "student" && (
           <Segment>
             <Form onSubmit={this.handleSubmit}>
-              <Form.Field>
-                <label>URL</label>
-                <input placeholder="URL" name="url" required />
-              </Form.Field>
-              <Form.Field>
-                <label>Title</label>
-                <input placeholder="Title" name="title" required />
-              </Form.Field>
+              <Form.Group widths="equal">
+                <Form.Field>
+                  <label>URL- https://www.youtube.com/watch?v= </label>
+                  <input placeholder="URL" name="url" required />
+                </Form.Field>
+                <Form.Field>
+                  <label>Title</label>
+                  <input placeholder="Title" name="title" required />
+                </Form.Field>
+              </Form.Group>
               <Form.TextArea
                 label="Description"
                 placeholder="Description"
                 name="description"
               />
-              <Button type="submit">Submit</Button>
+              <Button type="submit" color="blue">
+                Submit
+              </Button>
             </Form>
           </Segment>
         )}

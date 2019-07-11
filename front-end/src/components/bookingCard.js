@@ -27,7 +27,7 @@ class BookingCard extends React.Component {
 
   render() {
     return (
-      <Grid columns="equal">
+      <Grid padded columns="equal">
         {this.props.typeOfUser === "teacher" && (
           <Grid.Column width={4}>
             {this.props.students.map(
@@ -50,46 +50,47 @@ class BookingCard extends React.Component {
           <Segment>{this.props.booking.ending}</Segment>
         </Grid.Column>
         <Grid.Column>
-          {this.props.booking.confirmed 
-            ? (this.props.booking.confirmed === "Yes"  
-                ? (<Segment>
-                    <Icon name="checkmark" />
-                  </Segment>)
-                : (<Segment>
-                    <Icon name="close" />
-                  </Segment>)) 
-            : this.props.typeOfUser === "student" 
-                ? (
-                  <Segment>
-                    <Icon name="question" />
-                  </Segment>) 
-                : (<Segment>
-                  <Form onChange={this.handleSubmit}>
-                    <Form.Group inline>
-                      <Form.Field>
-                      </Form.Field>
-                      <Form.Field>
-                        <Checkbox
-                          radio
-                          label="Yes"
-                          name="checkboxRadioGroup"
-                          value="this"
-                          onChange={() => this.handleChange("Yes")}
-                        />
-                      </Form.Field>
-                      <Form.Field>
-                        <Checkbox
-                          radio
-                          label="No"
-                          name="checkboxRadioGroup"
-                          value="that"
-                          onChange={() => this.handleChange("No")}
-                        />
-                      </Form.Field>
-                    </Form.Group>
-                  </Form>
-              </Segment>)
-          }
+          {this.props.booking.confirmed ? (
+            this.props.booking.confirmed === "Yes" ? (
+              <Segment>
+                <Icon name="checkmark" />
+              </Segment>
+            ) : (
+              <Segment>
+                <Icon name="close" />
+              </Segment>
+            )
+          ) : this.props.typeOfUser === "student" ? (
+            <Segment>
+              <Icon name="question" />
+            </Segment>
+          ) : (
+            <Segment>
+              <Form onChange={this.handleSubmit}>
+                <Form.Group inline>
+                  <Form.Field />
+                  <Form.Field>
+                    <Checkbox
+                      radio
+                      label="Yes"
+                      name="checkboxRadioGroup"
+                      value="this"
+                      onChange={() => this.handleChange("Yes")}
+                    />
+                  </Form.Field>
+                  <Form.Field>
+                    <Checkbox
+                      radio
+                      label="No"
+                      name="checkboxRadioGroup"
+                      value="that"
+                      onChange={() => this.handleChange("No")}
+                    />
+                  </Form.Field>
+                </Form.Group>
+              </Form>
+            </Segment>
+          )}
         </Grid.Column>
       </Grid>
     );
