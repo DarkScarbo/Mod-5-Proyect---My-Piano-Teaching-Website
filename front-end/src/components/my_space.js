@@ -17,28 +17,34 @@ class MySpace extends React.Component {
   };
 
   postReviewOnThePage = review => {
-    const newstudents = this.state.students.map(
-      student =>
-        student.videos.map(video => {
+    const newstudents = this.state.students.map(student => {
+      if (student.videos.length > 0) {
+        return student.videos.map(video => {
           if (video.id === review.video_id) {
             video.review = review;
           }
           return student;
-        })[0]
-    );
+        })[0];
+      } else {
+        return student;
+      }
+    });
     this.setState({ students: newstudents });
   };
 
   updateBookingOnThePage = newBooking => {
-    const newstudents = this.state.students.map(
-      student =>
-        student.my_bookings.map((booking, index) => {
+    const newstudents = this.state.students.map(student => {
+      if (student.my_bookings.length > 0) {
+        return student.my_bookings.map((booking, index) => {
           if (newBooking.id === booking.id) {
             student.my_bookings[index] = newBooking;
           }
           return student;
-        })[0]
-    );
+        })[0];
+      } else {
+        return student;
+      }
+    });
     this.setState({ students: newstudents });
   };
   postMessageOnThePage = message => {
