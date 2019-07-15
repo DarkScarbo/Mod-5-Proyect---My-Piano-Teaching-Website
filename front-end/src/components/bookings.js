@@ -1,7 +1,7 @@
 import React from "react";
 import BookingCard from "./bookingCard";
 import { DateInput, TimeInput } from "semantic-ui-calendar-react";
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Header } from "semantic-ui-react";
 import { postBooking } from "../services/api";
 import { Grid, Segment } from "semantic-ui-react";
 
@@ -39,6 +39,9 @@ class Bookings extends React.Component {
       <div>
         {this.props.bookings && (
           <Segment>
+            <Header as="h3" dividing>
+              Bookings
+            </Header>
             <Form widths="equal" onSubmit={this.handleSubmit}>
               <Form.Group widths="equal">
                 <DateInput

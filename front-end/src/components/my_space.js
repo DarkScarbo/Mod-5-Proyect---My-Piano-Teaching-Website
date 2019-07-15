@@ -98,7 +98,7 @@ class MySpace extends React.Component {
     return (
       <div>
         <Segment color="blue" secondary>
-          <Header as="h2" textAlign="center">
+          <Header as="h1" textAlign="center">
             Welcome to My Space {this.props.name}!
           </Header>
           <MySpaceNavbar />

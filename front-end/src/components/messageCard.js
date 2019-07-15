@@ -6,7 +6,7 @@ const MessageCard = props => {
   const time = props.message.created_at.slice(11, 16);
   return (
     <Comment>
-      <Comment.Avatar src="https://react.semantic-ui.com/images/avatar/small/matt.jpg" />
+      {/* <Comment.Avatar src="https://react.semantic-ui.com/images/avatar/small/matt.jpg" /> */}
       <Comment.Content>
         <Comment.Author>
           {props.message.creator_id === props.message.student_id

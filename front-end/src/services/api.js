@@ -60,7 +60,7 @@ export function postMessage(text, creator_id, student_id, teacher_id) {
   }).then(resp => resp.json());
 }
 export function updateBooking(confirmed, id) {
-  return fetch("http://localhost:3000/bookings" + `/${id}`, {
+  return fetch("http://localhost:3000/bookings/" + id, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"

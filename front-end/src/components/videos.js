@@ -1,6 +1,6 @@
 import React from "react";
 import VideoCard from "./videoCard";
-import { Button, Form, Segment } from "semantic-ui-react";
+import { Button, Form, Segment, Header } from "semantic-ui-react";
 import { postVideo } from "../services/api";
 
 class Videos extends React.Component {
@@ -20,6 +20,9 @@ class Videos extends React.Component {
       <div>
         {this.props.typeOfUser === "student" && (
           <Segment>
+            <Header as="h3" dividing>
+              Videos
+            </Header>
             <Form onSubmit={this.handleSubmit}>
               <Form.Group widths="equal">
                 <Form.Field>

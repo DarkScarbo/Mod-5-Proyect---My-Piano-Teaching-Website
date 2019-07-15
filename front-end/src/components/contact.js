@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Header, List, Segment, Image } from "semantic-ui-react";
+import { Container, Header, Image } from "semantic-ui-react";
 
 const Contact = props => {
   return (
