@@ -2,7 +2,10 @@ import React from "react";
 import { Container, Header, List, Segment, Image } from "semantic-ui-react";
 const About = props => {
   return (
-    <div style={{ textAlign: "justify" }} className="Ondine-backgroung">
+    <div
+      style={{ textAlign: "justify", marginBottom: "20px" }}
+      className="Ondine-backgroung"
+    >
       {/* <Segment secondary> */}
       <Container text>
         <Header as="h1" textAlign="center">
@@ -69,7 +72,7 @@ const About = props => {
             technique.
           </p>
         </Segment>
-        <Segment secondary>
+        <Segment secondary style={{ marginBottom: "20px" }}>
           <Header as="h2" textAlign="center">
             Qualifications
           </Header>
