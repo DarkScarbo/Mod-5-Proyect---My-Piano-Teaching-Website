@@ -22,4 +22,6 @@ There are API endpoints for all models. The app uses mainly the User endpoint. A
 ## Client
 The client-side of the application is built in React. The style is done by a combination of Semantic and CSS.
 
-## Screenshots
+## Screenshots and Gifs
+
+![make a Booking as a Student](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Kapture%202019-07-16%20at%2013.16.56.gif)
