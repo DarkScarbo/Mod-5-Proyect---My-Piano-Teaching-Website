@@ -33,11 +33,17 @@ Contact:
 ![Contact](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Contact.png)
 Log in:
 ![Sign up or Log in](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/LogIn.png)
-
+----------------------------
+Make a Booking as a Student:
 ![Make a Booking as a Student](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Student-Booking.gif)
+Post a Video as a Student:
 ![Post a Video as a Student](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Student-Video.gif)
+Send a Message as a Student:
 ![Send a Message as a Student](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Student-Message.gif)
 
+Accept/Reject a Booking as a Teacher:
 ![Accept/Reject a Booking as a Teacher](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Teacher-Booking.gif)
+Make a Review to a Video as a Teacher:
 ![Make a Review to a Video as a Teacher](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Teacher-Video.gif)
+Send a Message as a as a Teacher:
 ![Send a Message as a as a Teacher](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Teacher-Message.gif)
