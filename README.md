@@ -20,7 +20,7 @@ The backend it's built in Ruby on Rails with a PostgreSQL database, using an obj
 There are API endpoints for all models. The app uses mainly the User endpoint. Authentication and authoritation are done with Rails, using bcrypt for encyption.
 
 ## Client
-The client-side of the application is built in React. The style is done by a combination of Semantic and CSS.
+The client-side of the application is built in React. The style is done by a combination of Semantic-React-UI and CSS.
 
 ## Initialization
 1. Clone and open the project in a code editor.
