@@ -25,8 +25,8 @@ The client-side of the application is built in React. The style is done by a com
 ## Screenshots and Gifs
 About:
 ![About](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/About.png)
-Reviws:
-![Reviws](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Reviews.png)
+Reviwes:
+![Reviews](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Reviews.png)
 Lessons:
 ![Lessons](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Lessons.png)
 Contact:
