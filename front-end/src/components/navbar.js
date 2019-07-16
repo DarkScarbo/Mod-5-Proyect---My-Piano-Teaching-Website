@@ -61,7 +61,7 @@ class Navbar extends React.Component {
               <Menu.Item header name="Log out" onClick={this.props.logOut} />
             </Menu.Menu>
           ) : (
-            <Menu.Menu position="right" header>
+            <Menu.Menu position="right" header="true">
               <Menu.Item
                 as={Link}
                 to="/signuporlogin"

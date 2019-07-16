@@ -47,6 +47,7 @@ class MySpace extends React.Component {
     });
     this.setState({ students: newstudents });
   };
+
   postMessageOnThePage = message => {
     if (this.state.messages) {
       this.setState({ messages: [...this.state.messages, message] });
@@ -69,16 +70,11 @@ class MySpace extends React.Component {
     this.setState({ videos: [...this.state.videos, video] });
   };
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   componentDidMount() {
-    if (!this.props.name) {
-      this.props.history.push("/");
-    }
     if (this.props.id) {
       fetch(`http://localhost:3000/users/${this.props.id}`)
         .then(resp => resp.json())
         .then(user => {
-          console.log(user);
           if (this.props.typeOfUser === "teacher") {
             this.setState({
               students: user.students,
@@ -99,6 +95,8 @@ class MySpace extends React.Component {
         });
     }
   }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
     return (

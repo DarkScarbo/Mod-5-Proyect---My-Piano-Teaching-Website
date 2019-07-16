@@ -15,6 +15,7 @@ class Bookings extends React.Component {
       ending: ""
     };
   }
+  
   handleChange = (event, { name, value }) => {
     if (this.state.hasOwnProperty(name)) {
       this.setState({ [name]: value });

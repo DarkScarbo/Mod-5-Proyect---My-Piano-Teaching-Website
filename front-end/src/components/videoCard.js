@@ -26,6 +26,19 @@ class VideoCard extends React.Component {
     );
   };
 
+  getReviewOrReviewForm = () => {
+    return (
+      this.props.video.review ? (
+      <p>{this.props.video.review && this.props.video.review.text}</p>
+    ) : (
+      <Form onSubmit={this.handleReviewSubmit}>
+        <Form.TextArea label="Review" placeholder="Review" name="review" />
+        <Button type="submit">Submit</Button>
+      </Form>
+    )
+    )
+  };
+
   render() {
     const { activeIndex } = this.state;
     const opts = {
@@ -60,20 +73,7 @@ class VideoCard extends React.Component {
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 0}>
               {this.props.typeOfUser === "teacher" ? (
-                this.props.video.review ? (
-                  <p>
-                    {this.props.video.review && this.props.video.review.text}
-                  </p>
-                ) : (
-                  <Form onSubmit={this.handleReviewSubmit}>
-                    <Form.TextArea
-                      label="Review"
-                      placeholder="Review"
-                      name="review"
-                    />
-                    <Button type="submit">Submit</Button>
-                  </Form>
-                )
+                this.getReviewOrReviewForm()
               ) : (
                 <p>{this.props.video.review && this.props.video.review.text}</p>
               )}

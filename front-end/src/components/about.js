@@ -23,8 +23,7 @@ const About = props => {
           <p>
             I have over 13 years' experience teaching students of all ages and
             levels, from those just starting their journey all the way to
-            professionals. My studio is based in SE1 3GU, between London Bridge
-            and Bermondsey.
+            professionals. My studio is based in SE1 3GU, in London Bridge.
           </p>
           <p>
             I started my own professional studies at the Conservatoire "Juan

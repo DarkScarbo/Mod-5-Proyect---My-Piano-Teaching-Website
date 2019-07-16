@@ -6,7 +6,7 @@ import Navbar from "./components/navbar";
 import Lessons from "./components/lessons";
 import Contact from "./components/contact";
 import MySpace from "./components/my_space";
-import UserContainer from "./components/user_container";
+import SignUpLogInForm from "./components/signup_login_form";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { validate } from "./services/api";
 
@@ -65,14 +65,7 @@ class App extends React.Component {
           <Route
             exact
             path="/signuporlogin"
-            component={() => (
-              <UserContainer
-                logIn={this.logIn}
-                logOut={this.logOut}
-                logedIn={this.state.logedIn}
-                name={this.state.name}
-              />
-            )}
+            component={() => <SignUpLogInForm logIn={this.logIn} />}
           />
 
           <Route
