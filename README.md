@@ -4,4 +4,22 @@ This is a platform that shows my website as a pianist, then, a student can sign 
 ## Motivation
 This is the fifth and last proyect for the Flatiron School Software Engineering bootcamp. The basic requirements for this project are the use of Ruby on Rails for the back-end an React for the front-end.
 
+## Server
+The backend it's built in Ruby on Rails with a PostgreSQL database, using an object-oriented programming approach. The app has 5 models: User, Booking, Message, Video and Review.
+
+A User can be both a Teacher or a Student.
+A User has many Bookings
+A Booking belongs to a Teacher and a Student. 
+A User has many Messages.
+A Message belongs to a Teacher and a Student.
+A Teacher has many Students and a Student belongs to a Teacher.
+A Student has many Videos.
+A Video has a Review.
+A Teacher has many reviews.
+
+There are API endpoints for all models. The app uses mainly the User endpoint. Authentication is done through a Rails sessions controller, using bcrypt for encyption.
+
+## Client
+The client-side of the application is built in React. The style is done by a combination of Semantic and CSS.
+
 ## Screenshots
