@@ -24,4 +24,4 @@ The client-side of the application is built in React. The style is done by a com
 
 ## Screenshots and Gifs
 
-[![make a Booking as a Student](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Kapture%202019-07-16%20at%2013.16.56.gif)
+![make a Booking as a Student](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Kapture%202019-07-16%20at%2013.16.56.gif)
