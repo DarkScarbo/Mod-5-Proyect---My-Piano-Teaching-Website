@@ -23,11 +23,15 @@ There are API endpoints for all models. The app uses mainly the User endpoint. A
 The client-side of the application is built in React. The style is done by a combination of Semantic and CSS.
 
 ## Screenshots and Gifs
-
+About:
 ![About](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/About.png)
+Reviws:
 ![Reviws](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Reviews.png)
+Lessons:
 ![Lessons](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Lessons.png)
+Contact:
 ![Contact](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Contact.png)
+Log in:
 ![Sign up or Log in](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/LogIn.png)
 
 ![Make a Booking as a Student](https://github.com/DarkScarbo/Mod-5-Project---My-Piano-Teaching-Website/blob/master/front-end/public/Student-Booking.gif)
