@@ -21,13 +21,16 @@ const Contact = props => {
       />
       <p className="p-review">If you want to be in contact:</p>
       <p className="p-review">
-        I have over 13 years' experience teaching students of all ages and
-        levels, from those just starting their journey all the way to
-        professionals.
+        Movile Phone: <br />
+        07539175029
       </p>
+      <p className="p-review">Email: xabi.casan.piano@gmail.com</p>
       <p className="p-review">
-        My studio is based in SE1 3GU, between London Bridge and Bermondsey.
+        Studio:
+        <br /> SE1 3GU, London Bridge.
       </p>
+
+      <p className="p-review">Sign up or Log in for more content!</p>
     </Container>
   );
 };
