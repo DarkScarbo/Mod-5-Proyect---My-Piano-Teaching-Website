@@ -1,3 +1,6 @@
+## Client
+The client-side of the application is built in React. The style is done by a combination of Semantic-React-UI and CSS.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
