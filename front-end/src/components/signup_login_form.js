@@ -19,35 +19,37 @@ class SignUpLogInForm extends React.Component {
     this.setState({ logStatus: !this.state.logStatus });
   };
 
+  logInUser = (email, password) => {
+    logInApi(email, password).then(data => {
+      if (data.error) {
+        alert(data.error);
+      } else {
+        this.props.logIn(data);
+      }
+    });
+  };
+
+  signInUser = (name, email, password) => {
+    signUpApi(name, email, password).then(data => {
+      if (data.error) {
+        alert(data.error);
+      } else {
+        this.logInUser(email, password);
+      }
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     if (this.state.logStatus === false) {
-      logInApi(email, password).then(data => {
-        if (data.error) {
-          alert(data.error);
-        } else {
-          this.props.logIn(data);
-        }
-      });
+      this.logInUser(email, password);
     } else {
       const name = e.target.username.value;
       const passwordConfirmation = e.target.password_confirmation.value;
       if (password === passwordConfirmation) {
-        signUpApi(name, email, password).then(data => {
-          if (data.error) {
-            alert(data.error);
-          } else {
-            logInApi(email, password).then(data => {
-              if (data.error) {
-                alert(data.error);
-              } else {
-                this.props.logIn(data);
-              }
-            });
-          }
-        });
+        this.signInUser(name, email, password);
       } else {
         alert("Your passwords don't match!");
       }
