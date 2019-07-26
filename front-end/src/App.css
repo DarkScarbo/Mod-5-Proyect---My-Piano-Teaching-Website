@@ -8,9 +8,14 @@ body {
 }
 
 .Ondine-backgroung {
-  background-image: url("./Images/Ondine.png");
+  /* background-image: url("./Images/Ondine.png");
+  background-size: contain; */
   /* padding-right: 12px; */
   /* -webkit-background-size: 900px, 850px; */
+  background-image: url("./Images/Ondine.png"), url("./Images/Ondine.png");
+  background-position: left, right;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain;
 }
 
 .App-logo {

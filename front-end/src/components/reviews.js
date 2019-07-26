@@ -91,7 +91,7 @@ const Reviews = props => {
             size="small"
             floated="left"
           />
-          <h2>Ana</h2>
+          <h2>Anna</h2>
           <p className="p-review">
             He is very versatile as a teacher. I learnt how to play jazz piano
             piaces with him while learning classical and jazz harmony to make
