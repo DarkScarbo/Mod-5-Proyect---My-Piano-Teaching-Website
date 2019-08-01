@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#signup'
   post '/login', to: 'users#login'
   get '/validate', to: 'users#validate'
-  post '/getstudentsvideos', to: 'users#get_students_videos'
+  # post '/getstudentsvideos', to: 'users#get_students_videos'
 end
