@@ -72,7 +72,6 @@ class App extends React.Component {
             path="/mySpace"
             component={props => (
               <MySpace
-                name={this.state.name}
                 id={this.state.id}
                 typeOfUser={this.state.typeOfUser}
                 {...props}

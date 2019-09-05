@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     end
 
     def create
-        booking = Booking.new(date: params[:date], starting: params[:starting], ending: params[:ending], confirmed: params[:confirmed], student_id: params[:student_id], creator_id: params[:creator_id], teacher_id: User.all.first.id)
+        booking = Booking.new(date: params[:date], starting: params[:starting], ending: params[:ending], confirmed: params[:confirmed], teacher_id: User.all.first.id,student_id: params[:student_id], student_name: params[:student_name], student_email: params[:student_email])
         if booking.save
           render json: booking
         else

@@ -78,14 +78,10 @@ class BookingCard extends React.Component {
       <Grid padded columns="equal">
         {this.props.typeOfUser === "teacher" && (
           <Grid.Column width={4}>
-            {this.props.students.map(
-              student =>
-                student.id === this.props.booking.student_id && (
-                  <Segment key={student.id}>
-                    {student.name} {student.email}
-                  </Segment>
-                )
-            )}
+            <Segment>
+              {this.props.booking.student_name}{" "}
+              {this.props.booking.student_email}
+            </Segment>
           </Grid.Column>
         )}
         <Grid.Column>

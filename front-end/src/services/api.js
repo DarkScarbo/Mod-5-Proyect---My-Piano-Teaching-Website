@@ -34,7 +34,8 @@ export function postBooking(
   ending,
   confirmed,
   student_id,
-  creator_id,
+  student_name,
+  student_email,
   teacher_id
 ) {
   return fetch("http://localhost:3000/bookings", {
@@ -45,9 +46,10 @@ export function postBooking(
       starting,
       ending,
       confirmed,
+      teacher_id,
       student_id,
-      creator_id,
-      teacher_id
+      student_name,
+      student_email
     })
   }).then(resp => resp.json());
 }
@@ -87,13 +89,3 @@ export default {
   updateBooking,
   postReview
 };
-
-// fetch("http://localhost:3000/signup", {
-//   method: "POST",
-//   headers: { "Content-Type": "application/json" },
-//   body: JSON.stringify({
-//     name: "Fran",
-//     email: "francisco.costa@gmail.com",
-//     password: "fran"
-//   })
-// }).then(resp => resp.json())

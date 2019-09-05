@@ -13,6 +13,8 @@ class MySpace extends React.Component {
     bookings: [],
     videos: [],
     students: [],
+    email: "",
+    name: "",
     activeItem: "home"
   };
 
@@ -78,18 +80,22 @@ class MySpace extends React.Component {
           if (this.props.typeOfUser === "teacher") {
             this.setState({
               students: user.students,
-              // this next three lines remove messages, bookings and videos from state as a teacher
-              messages: user.my_messages,
-              bookings: user.my_bookings,
-              videos: user.videos
+              name: user.name,
+              // this next three lines remove email, messages, bookings and videos from state as a teacher
+              email: null,
+              messages: null,
+              bookings: null,
+              videos: null
             });
           } else {
             this.setState({
               messages: user.my_messages,
               bookings: user.my_bookings,
               videos: user.videos,
+              name: user.name,
+              email: user.email,
               // the next line removes students from state as a student
-              students: user.students
+              students: null
             });
           }
         });
@@ -103,7 +109,7 @@ class MySpace extends React.Component {
       <div>
         <Segment color="blue" secondary>
           <Header as="h1" textAlign="center">
-            Welcome to My Space {this.props.name}!
+            Welcome to "My Space" {this.state.name}!
           </Header>
           <MySpaceNavbar />
           <Switch>
@@ -112,6 +118,8 @@ class MySpace extends React.Component {
               path="/mySpace/myBookings"
               component={() => (
                 <Bookings
+                  name={this.state.name}
+                  email={this.state.email}
                   students={this.state.students}
                   typeOfUser={this.props.typeOfUser}
                   bookings={this.state.bookings}
