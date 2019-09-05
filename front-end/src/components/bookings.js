@@ -38,7 +38,7 @@ const Bookings = props => {
     return bookingsCopy;
   };
 
-  // Handle Booking Form
+  // Handle Booking Form.
 
   const handleChange = e => {
     if (e.target.name === "date") {
