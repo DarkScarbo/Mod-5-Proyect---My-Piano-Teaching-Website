@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Header, List, Segment, Image } from "semantic-ui-react";
 
-const About = props => {
+const About = () => {
   return (
     <div
       style={{ textAlign: "justify", marginBottom: "20px" }}
