@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Header, Segment, Image } from "semantic-ui-react";
 
-const Reviews = props => {
+const Reviews = () => {
   return (
     <div style={{ textAlign: "justify" }}>
       <Container text style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}>
