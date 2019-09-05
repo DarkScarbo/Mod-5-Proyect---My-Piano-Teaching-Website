@@ -18,7 +18,7 @@ const Bookings = props => {
     setSortBy(sortType);
   };
 
-  // Handle sorting
+  // Handle sorting.
 
   const teacherBookings = students => {
     const bookingsArray = students.map(student =>
