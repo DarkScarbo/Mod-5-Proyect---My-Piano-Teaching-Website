@@ -106,7 +106,7 @@ const Bookings = props => {
       currentDate.localeCompare(dateReversed) === -1 ||
       (currentDate.localeCompare(dateReversed) === 0 &&
         getCurrentTime().localeCompare(e.target.starting.value) === -1); // Checks if date and time are not in the past.
-    // debugger;
+
     return checkDate;
   };
 
