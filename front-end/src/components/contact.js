@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Header, Image } from "semantic-ui-react";
 
-const Contact = props => {
+const Contact = () => {
   return (
     <Container
       text
