@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Header, Image } from "semantic-ui-react";
 
-const Lessons = props => {
+const Lessons = () => {
   return (
     <Container
       text
