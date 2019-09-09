@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe Booking, type: :model do
 
 booking_one = Booking.create( date: "15-09-2219", teacher_id: 1, student_id: 2, confirmed: "Yes", starting: "17:00", ending: "18:30", student_name: "Harriet", student_email: "harriet.ballantyne@gmail.com")
+booking_two = Booking.create( date: "09-09-2019", teacher_id: 1, student_id: 2, confirmed: "Yes", starting: "23:58", ending: "23:59", student_name: "Harriet", student_email: "harriet.ballantyne@gmail.com")
 
-    it "is valid with a all the parameters" do
+    it "is valid with a all the attributes" do
         expect(booking_one).to be_valid
     end
 
@@ -12,7 +13,7 @@ booking_one = Booking.create( date: "15-09-2219", teacher_id: 1, student_id: 2, 
         expect(booking_one).to be_an_instance_of Booking
     end
 
-    it "has a confirmed attribute equal to Yes, No or an empty string" do
+    it "has a confirmed attribute equal to Yes, No or to an empty string" do
         expect(booking_one.confirmed).to eq("Yes") | eq("No") | eq("")
     end
     
@@ -26,4 +27,13 @@ booking_one = Booking.create( date: "15-09-2219", teacher_id: 1, student_id: 2, 
         booking_data_reversed = booking_one.date.split("-").reverse().join("-")
         expect(current_date_reversed).to be < (booking_data_reversed) # booking_one.date is far enogh to pass the spec ;-) 
     end
+
+    it "has a valid time if the booking is for the current date" do
+        current_date_and_time = "09-09-2019 18:06"
+        current_date = current_date_and_time.split(" ").first
+        current_time = current_date_and_time.split(" ").last
+        expect(current_date). to eq(booking_two.date) 
+        expect(current_time).to be < (booking_two.starting)
+    end
+
 end
