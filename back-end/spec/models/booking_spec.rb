@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Booking, type: :model do
 
-xabi = User.create(name: "Xabier", email: "xabi.casan.piano@gmail.com", typeOfUser: "teacher", password: "password", teacher_id: nil)
-harriet = User.create(name: "Harriet", email: "harriet.ballantyne@gmail.com", typeOfUser: "student", password: "password", teacher_id: xabi.id)
+booking_one = Booking.create( date: "15-09-2219", teacher_id: 1, student_id: 2, confirmed: "Yes", starting: "17:00", ending: "18:30", student_name: "Harriet", student_email: "harriet.ballantyne@gmail.com")
 
-booking_one = Booking.create( date: "15-09-2219", teacher_id: xabi.id, student_id: harriet.id, confirmed: "Yes", starting: "17:00", ending: "18:30", student_name: harriet.name, student_email: harriet.email)
+    it "is valid with a all the parameters" do
+        expect(booking_one).to be_valid
+    end
 
     it "creates instances of Booking model" do
         expect(booking_one).to be_an_instance_of Booking
