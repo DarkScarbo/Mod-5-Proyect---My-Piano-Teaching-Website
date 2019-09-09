@@ -4,6 +4,10 @@ RSpec.describe Booking, type: :model do
 
 booking_one = Booking.create( date: "15-09-2019", teacher_id: 1, student_id: 2, confirmed: "Yes", starting: "17:00", ending: "18:30", student_name: "Harriet", student_email: "harriet.ballantyne@gmail.com")
 
+    it "creates instances of Booking model" do
+        expect(booking_one).to be_an_instance_of Booking
+    end
+
     it "has a confirmed column equal to Yes, No or an empty string" do
         expect(booking_one.confirmed).to eq("Yes") | eq("No") | eq("")
     end
