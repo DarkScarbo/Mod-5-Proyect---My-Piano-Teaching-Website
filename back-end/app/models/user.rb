@@ -1,5 +1,10 @@
 class User < ApplicationRecord
     validates :email, uniqueness: true
+    validates :password, presence: true
+    validates :name, presence: true
+    validates :typeOfUser, presence: true
+
+
     has_secure_password
     has_many :videos, foreign_key: "student_id"
     has_many :reviews
