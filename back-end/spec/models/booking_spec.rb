@@ -11,7 +11,7 @@ booking_one = Booking.create( date: "15-09-2219", teacher_id: xabi.id, student_i
         expect(booking_one).to be_an_instance_of Booking
     end
 
-    it "has a confirmed column equal to Yes, No or an empty string" do
+    it "has a confirmed attribute equal to Yes, No or an empty string" do
         expect(booking_one.confirmed).to eq("Yes") | eq("No") | eq("")
     end
     
