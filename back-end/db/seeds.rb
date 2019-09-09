@@ -26,10 +26,12 @@ message_five = Message.create(text: "Hi Xabi, I'm playing Cants Magics, by Mompo
 message_six = Message.create(text: "Hi Fran, of course! Spanish Music is one of my specialities", student_id: fran.id, teacher_id: xabi.id, creator_id: xabi.id)
 
 
-booking_one = Booking.create(date: "26-08-2019", teacher_id: xabi.id, student_id: harriet.id, confirmed: "Yes", starting: "17:00", ending: "18:30", student_name: harriet.name, student_email: harriet.email)
-booking_two = Booking.create(date: "30-08-2019", teacher_id: xabi.id, student_id: harriet.id, confirmed: "", starting: "18:00", ending: "19:30", student_name: harriet.name, student_email: harriet.email )
-booking_three = Booking.create(date: "01-09-2019", teacher_id: xabi.id, student_id: fran.id, confirmed: "", starting: "18:00", ending: "19:30", student_name: fran.name, student_email: fran.email )
-booking_four = Booking.create(date: "02-09-2019", teacher_id: xabi.id, student_id: dunia.id, confirmed: "", starting: "17:00", ending: "18:30", student_name: dunia.name, student_email: dunia.email )
+booking_one = Booking.create(date: "15-09-2019", teacher_id: xabi.id, student_id: harriet.id, confirmed: "Yes", starting: "17:00", ending: "18:30", student_name: harriet.name, student_email: harriet.email)
+booking_two = Booking.create(date: "17-09-2019", teacher_id: xabi.id, student_id: harriet.id, confirmed: "", starting: "18:00", ending: "19:30", student_name: harriet.name, student_email: harriet.email )
+booking_three = Booking.create(date: "21-09-2019", teacher_id: xabi.id, student_id: harriet.id, confirmed: "", starting: "18:30", ending: "20:00", student_name: harriet.name, student_email: harriet.email )
+booking_four = Booking.create(date: "22-09-2019", teacher_id: xabi.id, student_id: fran.id, confirmed: "Yes", starting: "18:00", ending: "19:30", student_name: fran.name, student_email: fran.email )
+booking_five = Booking.create(date: "16-09-2019", teacher_id: xabi.id, student_id: fran.id, confirmed: "", starting: "17:30", ending: "19:00", student_name: fran.name, student_email: fran.email )
+booking_six = Booking.create(date: "20-09-2019", teacher_id: xabi.id, student_id: dunia.id, confirmed: "", starting: "17:00", ending: "18:30", student_name: dunia.name, student_email: dunia.email )
 
 harriet_playing_ondine = Video.create(url: "94SrLeiKJ-0", title: "Harriet playing Ondine, from Gaspard de la nuit, by Ravel", description: "Recorded in 2019/06/20", student_id: harriet.id)
 harriet_playing_le_gibet = Video.create(url: "3PQ-H1PjrWQ", title: "Harriet playing Le Gibet, from Gaspard de la nuit, by Ravel", description: "Recorded in 2019/06/20", student_id: harriet.id)
