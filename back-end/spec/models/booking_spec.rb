@@ -23,6 +23,6 @@ booking_one = Booking.create( date: "15-09-2219", teacher_id: xabi.id, student_i
         current_date = Time.now.strftime("%d/%m/%Y %H:%M").split(" ").first
         current_date_reversed = current_date.split("/").reverse().join("-")
         booking_data_reversed = booking_one.date.split("-").reverse().join("-")
-        expect(current_date_reversed).to be < (booking_data_reversed) # booking_one.date is far enogh ;-) 
+        expect(current_date_reversed).to be < (booking_data_reversed) # booking_one.date is far enogh to pass the spec ;-) 
     end
 end
