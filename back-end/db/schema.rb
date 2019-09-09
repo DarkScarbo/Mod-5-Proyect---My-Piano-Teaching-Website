@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_140029) do
+ActiveRecord::Schema.define(version: 2019_06_26_172543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,21 +20,21 @@ ActiveRecord::Schema.define(version: 2019_09_05_140029) do
     t.string "confirmed"
     t.string "starting"
     t.string "ending"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "teacher_id"
     t.integer "student_id"
     t.string "student_name"
     t.string "student_email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "student_id"
     t.integer "teacher_id"
     t.integer "creator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 2019_09_05_140029) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "teacher_id"
     t.string "typeOfUser"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "videos", force: :cascade do |t|

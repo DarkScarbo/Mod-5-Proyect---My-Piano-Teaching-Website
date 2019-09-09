@@ -22,7 +22,7 @@ message_one = Message.create(text: "Hey Xabi! I need a piano teacher! Are you av
 message_two = Message.create(text: "Hi Harriet! Yes, I would love to be your piano teacher! What are you working on?", student_id: harriet.id, teacher_id: xabi.id, creator_id: xabi.id)
 message_three = Message.create(text: "I'm currently playing 'Gaspard de la nuit', by Ravel, and I have a concert very soon.", student_id: harriet.id, teacher_id: xabi.id, creator_id: harriet.id)
 message_four = Message.create(text: "Perfect! I know that work very well, I can give you lots of tips.", student_id: harriet.id, teacher_id: xabi.id, creator_id: xabi.id)
-message_five = Message.create(text: "Hi Xabi, I'm playing Cants Magics, by Mompo, and I need some help. Are you able to help me?", student_id: fran.id, teacher_id: xabi.id, creator_id: fran.id)
+message_five = Message.create(text: "Hi Xabi, I'm playing Cants Magics, by Mompou, and I need some help. Are you able to help me?", student_id: fran.id, teacher_id: xabi.id, creator_id: fran.id)
 message_six = Message.create(text: "Hi Fran, of course! Spanish Music is one of my specialities", student_id: fran.id, teacher_id: xabi.id, creator_id: xabi.id)
 
 

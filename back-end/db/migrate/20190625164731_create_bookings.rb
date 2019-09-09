@@ -5,6 +5,11 @@ class CreateBookings < ActiveRecord::Migration[5.2]
       t.string :confirmed
       t.string :starting
       t.string :ending
+      t.integer :teacher_id
+      t.integer :student_id
+      t.string :student_name
+      t.string :student_email
+
       t.timestamps
     end
   end
