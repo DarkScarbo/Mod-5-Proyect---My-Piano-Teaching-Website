@@ -41,6 +41,8 @@ const getCurrentTimeResult = bookings_bl.getCurrentTime();
 // const teacherBookings = bookings_bl.teacherBookings();
 
 describe("bookings_bl", function() {
+  // getCurrentDate
+
   it("getCurrentDate should return a string", function() {
     let result = getCurrentDateResult;
     assert.typeOf(result, "string");
@@ -57,8 +59,15 @@ describe("bookings_bl", function() {
     assert.equal(result[5], "-");
   });
 
+  // getCurrentTime
+
   it("getCurrentTime should return a string", function() {
     let result = getCurrentTimeResult;
     assert.typeOf(result, "string");
+  });
+
+  it("getCurrentTime value should have a lenght of 5", function() {
+    let result = getCurrentTimeResult;
+    assert.equal(result.length, 5);
   });
 });
