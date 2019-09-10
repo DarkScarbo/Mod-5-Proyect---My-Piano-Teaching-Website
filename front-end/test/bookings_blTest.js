@@ -81,6 +81,6 @@ describe("bookings_bl", function() {
 
   it("checkDate should return a true if the date is not in the past", function() {
     let result = checkDateResult;
-    assert.isTrue(result, "the date is not in the past");
+    assert.isTrue(result);
   });
 });
