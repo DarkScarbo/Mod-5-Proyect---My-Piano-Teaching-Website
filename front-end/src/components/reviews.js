@@ -43,7 +43,7 @@ const Reviews = () => {
           <p className="p-review">
             I started doing the ABRSM grades with him three years ago and I
             couldn't be happier. He always encourages a positive attitude, even
-            if you don't feel like it the beginning.
+            if you don't feel like it in the beginning.
           </p>
         </Segment>
         <Image
@@ -55,8 +55,8 @@ const Reviews = () => {
         />
         <h2 className="Text-right">Dunia</h2>
         <p className="p-review">
-          He is a brilliant teacher and even better person. I have improved so
-          much since I started his classes. Highly recommended!
+          He is a brilliant teacher. I have improved so much since I started his
+          classes. Highly recommended!
         </p>
         <Segment color="blue" secondary style={{ paddingLeft: "0" }}>
           <Image
@@ -68,8 +68,8 @@ const Reviews = () => {
           <p className="p-review">
             We've studied together for a long time. He's a great, friendly and
             professional teacher. He's very patient, and has a great knowledge
-            of the instrument. He's very encouraging, enthusiastic but above all
-            he knows how to teach. I totally recommend him!!
+            of the instrument. He's very encouraging, enthusiastic, but above
+            all he knows how to teach. I totally recommend him!!
           </p>
         </Segment>
         <Image
@@ -81,20 +81,20 @@ const Reviews = () => {
         />
         <h2 className="Text-right">Ayush</h2>
         <p className="p-review">
-          Despite my little technique in the beggining, he taught me how to play
-          some pop songs and at the same time made me improved my posture. I
-          don't have back pain anymore!
+          Despite my limited technique in the beginning, he taught me how to
+          play some pop songs and at the same time helped me improve my posture.
+          I don't have back pain anymore!
         </p>
         <Segment color="teal" secondary style={{ paddingLeft: "0" }}>
           <Image
-            src={require("../Images/Ana.jpg")}
+            src={require("../Images/Anna.jpg")}
             size="small"
             floated="left"
           />
           <h2>Anna</h2>
           <p className="p-review">
             He is very versatile as a teacher. I learnt how to play jazz piano
-            piaces with him while learning classical and jazz harmony to make
+            piaces with him, while learning classical and jazz harmony to make
             accompaniments.
           </p>
         </Segment>

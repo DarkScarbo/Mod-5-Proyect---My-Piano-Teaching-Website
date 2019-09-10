@@ -121,10 +121,10 @@ const Bookings = props => {
           <Segment tertiary>Date</Segment>
         </Grid.Column>
         <Grid.Column>
-          <Segment tertiary>Starting Time</Segment>
+          <Segment tertiary>Start Time</Segment>
         </Grid.Column>
         <Grid.Column>
-          <Segment tertiary>Ending time</Segment>
+          <Segment tertiary>End time</Segment>
         </Grid.Column>
         <Grid.Column>
           <Segment tertiary>Status</Segment>

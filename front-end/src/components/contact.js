@@ -19,10 +19,10 @@ const Contact = () => {
         size="large"
         floated="left"
       />
-      <p className="p-review">If you want to be in contact:</p>
+      <p className="p-review">To get in touch:</p>
       <p className="p-review">
-        Movile Phone: <br />
-        07539175029
+        Mobile phone: <br />
+        07539 175 029
       </p>
       <p className="p-review">Email: xabi.casan.piano@gmail.com</p>
       <p className="p-review">
@@ -30,7 +30,7 @@ const Contact = () => {
         <br /> SE1 3GU, London Bridge.
       </p>
 
-      <p className="p-review">Sign up or Log in for more content!</p>
+      <p className="p-review">Sign up or log in for more content!</p>
     </Container>
   );
 };
