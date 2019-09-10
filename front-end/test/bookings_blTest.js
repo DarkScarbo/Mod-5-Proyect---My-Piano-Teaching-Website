@@ -4,35 +4,108 @@ console.log(bookings_bl);
 
 const date_one = "09-09-2119";
 const date_two = "09-09-2019";
-
 const time_one = "17:30";
 const time_two = "19:00";
 
+const byDate = "Date";
+const byStatus = "Status";
+const byStudent = "Student";
 const bookings = [
   {
-    date: "10-09-2119",
-    strting: "11:30",
+    date: "12-09-2119",
+    starting: "11:30",
     ending: "13:00",
-    student_id: 2,
-    student_name: "Harriet",
-    student_email: "harriet.ballantyne@gmail.com"
+    confirmed: "",
+    student_name: "Harriet"
+  },
+  {
+    date: "10-09-2119",
+    starting: "17:30",
+    ending: "19:00",
+    confirmed: "Yes",
+    student_name: "Dunia"
+  },
+  {
+    date: "14-09-2119",
+    starting: "16:30",
+    ending: "18:00",
+    confirmed: "",
+    student_name: "Fran"
+  }
+];
+const bookingsSortedByDate = [
+  {
+    date: "14-09-2119",
+    starting: "16:30",
+    ending: "18:00",
+    confirmed: "",
+    student_name: "Fran"
   },
   {
     date: "12-09-2119",
-    strting: "17:30",
+    starting: "11:30",
+    ending: "13:00",
+    confirmed: "",
+    student_name: "Harriet"
+  },
+  {
+    date: "10-09-2119",
+    starting: "17:30",
     ending: "19:00",
-    student_id: 3,
-    student_name: "Fran",
-    student_email: "francisco.costa@gmail.com"
+    confirmed: "Yes",
+    student_name: "Dunia"
   }
 ];
-
+const bookingsSortedByStatus = [
+  {
+    date: "10-09-2119",
+    starting: "17:30",
+    ending: "19:00",
+    confirmed: "Yes",
+    student_name: "Dunia"
+  },
+  {
+    date: "12-09-2119",
+    starting: "11:30",
+    ending: "13:00",
+    confirmed: "",
+    student_name: "Harriet"
+  },
+  {
+    date: "14-09-2119",
+    starting: "16:30",
+    ending: "18:00",
+    confirmed: "",
+    student_name: "Fran"
+  }
+];
+const bookingsSortedByStudent = [
+  {
+    date: "10-09-2119",
+    starting: "17:30",
+    ending: "19:00",
+    confirmed: "Yes",
+    student_name: "Dunia"
+  },
+  {
+    date: "14-09-2119",
+    starting: "16:30",
+    ending: "18:00",
+    confirmed: "",
+    student_name: "Fran"
+  },
+  {
+    date: "12-09-2119",
+    starting: "11:30",
+    ending: "13:00",
+    confirmed: "",
+    student_name: "Harriet"
+  }
+];
 const students = [{}];
 
 const getCurrentDateResult = bookings_bl.getCurrentDate();
 const getCurrentTimeResult = bookings_bl.getCurrentTime();
-// const checkTimeResult = bookings_bl.checkTime(e);
-// const checkFormResult = bookings_bl.checkForm(e);
 
 // const sortBookings = bookings_bl.sortBookings();
 // const teacherBookings = bookings_bl.teacherBookings();
@@ -103,6 +176,13 @@ describe("bookings_bl", function() {
   });
 
   it("checkTime should return false if the start time is before the end time", function() {
+    let result = bookings_bl.checkTime(time_two, time_one);
+    assert.isFalse(result);
+  });
+
+  // sortBookings
+
+  it("sortBookings should return false if the start time is before the end time", function() {
     let result = bookings_bl.checkTime(time_two, time_one);
     assert.isFalse(result);
   });
