@@ -32,7 +32,7 @@ const bookings = [
 const students = [{}];
 
 const getCurrentDateResult = bookings_bl.getCurrentDate();
-// const getCurrentTimeResult = bookings_bl.getCurrentTime();
+const getCurrentTimeResult = bookings_bl.getCurrentTime();
 // const checkDateResult = bookings_bl.checkDate(e);
 // const checkTimeResult = bookings_bl.checkTime(e);
 // const checkFormResult = bookings_bl.checkForm(e);
@@ -55,5 +55,10 @@ describe("bookings_bl", function() {
     let result = getCurrentDateResult;
     assert.equal(result[2], "-");
     assert.equal(result[5], "-");
+  });
+
+  it("getCurrentTime should return a string", function() {
+    let result = getCurrentTimeResult;
+    assert.typeOf(result, "string");
   });
 });
