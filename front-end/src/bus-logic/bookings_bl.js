@@ -22,36 +22,32 @@ const getCurrentTime = () => {
   return time;
 };
 
-const checkDate = e => {
+const checkDate = (date, starting) => {
   const currentDate = getCurrentDate()
     .split("-")
     .reverse()
     .join("-");
-  const dateReversed = e.target.date.value
+  const dateReversed = date
     .split("-")
     .reverse()
     .join("-");
   const checkDate =
     currentDate.localeCompare(dateReversed) === -1 ||
     (currentDate.localeCompare(dateReversed) === 0 &&
-      getCurrentTime().localeCompare(e.target.starting.value) === -1); // Checks if date and time are not in the past.
+      getCurrentTime().localeCompare(starting) === -1); // Checks if date and time are not in the past.
 
   return checkDate;
 };
 
-const checkTime = e => {
-  return e.target.starting.value.localeCompare(e.target.ending.value) === -1; // Cheks if the end time is after the start time.
+const checkTime = (starting, ending) => {
+  return starting.localeCompare(ending) === -1; // Cheks if the end time is after the start time.
 };
 
-const checkForm = e => {
+const checkForm = (date, starting, ending) => {
   const dateRe = /^\d{2}-\d{2}-\d{4}$/; // Checks if the date is valid.
   const timeRe = /^\d{1,2}:\d{2}([ap]m)?$/; // Cheks if the time is valid.
 
-  if (
-    e.target.date.value.match(dateRe) &&
-    e.target.starting.value.match(timeRe) &&
-    e.target.ending.value.match(timeRe)
-  ) {
+  if (date.match(dateRe) && starting.match(timeRe) && ending.match(timeRe)) {
     return true;
   } else {
     return false;

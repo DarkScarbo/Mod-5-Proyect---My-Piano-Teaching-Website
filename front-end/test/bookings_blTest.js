@@ -4,9 +4,9 @@ console.log(bookings_bl);
 
 const e = {
   target: {
-    date: "10-09-2119",
-    starting: "11:30",
-    ending: "13:00"
+    date: { key: "10-09-2119" },
+    starting: { key: "11:30" },
+    ending: { key: "13:00" }
   }
 };
 
@@ -33,7 +33,7 @@ const students = [{}];
 
 const getCurrentDateResult = bookings_bl.getCurrentDate();
 const getCurrentTimeResult = bookings_bl.getCurrentTime();
-// const checkDateResult = bookings_bl.checkDate(e);
+const checkDateResult = bookings_bl.checkDate(e);
 // const checkTimeResult = bookings_bl.checkTime(e);
 // const checkFormResult = bookings_bl.checkForm(e);
 

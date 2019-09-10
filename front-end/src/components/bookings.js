@@ -33,18 +33,25 @@ const Bookings = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    const date = e.target.date.value;
+    const starting = e.target.starting.value;
+    const ending = e.target.ending.value;
+
     const resetStateValues = () => {
       setDate("");
       setStarting("");
       setEnding("");
     };
 
-    if (checkDate(e) && checkForm(e) && checkTime(e)) {
+    if (
+      checkDate(date, starting) &&
+      checkForm(date, starting, ending) &&
+      checkTime(starting, ending)
+    ) {
       const confirmed = "";
       const student_name = props.name;
       const student_email = props.email;
       const student_id = props.id;
-      debugger;
       postBooking(
         date,
         starting,
