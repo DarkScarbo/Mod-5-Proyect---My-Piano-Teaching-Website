@@ -89,4 +89,21 @@ describe("bookings_bl", function() {
     let result = bookings_bl.checkDate(date_two, time_one);
     assert.isFalse(result);
   });
+
+  // checkTime
+
+  it("checkTime should return a boolean", function() {
+    let result = bookings_bl.checkTime(time_one, time_two);
+    assert.typeOf(result, "boolean");
+  });
+
+  it("checkTime should return true if the start time is before the end time", function() {
+    let result = bookings_bl.checkTime(time_one, time_two);
+    assert.isTrue(result);
+  });
+
+  it("checkTime should return false if the start time is before the end time", function() {
+    let result = bookings_bl.checkTime(time_two, time_one);
+    assert.isFalse(result);
+  });
 });
