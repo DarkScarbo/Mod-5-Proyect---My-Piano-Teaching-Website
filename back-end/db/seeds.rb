@@ -15,8 +15,8 @@ User.destroy_all
 
 xabi = User.create(name: "Xabier", email: "xabi.casan.piano@gmail.com", typeOfUser: "teacher", password: "xabier", teacher_id: nil)
 harriet = User.create(name: "Harriet", email: "harriet.ballantyne@gmail.com", typeOfUser: "student", password: "harriet", teacher_id: xabi.id)
-fran = User.create(name: "Fran", email: "francisco.costa@gmail.com", typeOfUser: "student", password: "fran", teacher_id: xabi.id)
 dunia = User.create(name: "Dunia", email: "dunia.al-baghdadi@gmail.com", typeOfUser: "student", password: "dunia", teacher_id: xabi.id)
+fran = User.create(name: "Fran", email: "francisco.costa@gmail.com", typeOfUser: "student", password: "fran", teacher_id: xabi.id)
 
 message_one = Message.create(text: "Hey Xabi! I need a piano teacher! Are you available?", student_id: harriet.id, teacher_id: xabi.id, creator_id: harriet.id)
 message_two = Message.create(text: "Hi Harriet! Yes, I would love to be your piano teacher! What are you working on?", student_id: harriet.id, teacher_id: xabi.id, creator_id: xabi.id)

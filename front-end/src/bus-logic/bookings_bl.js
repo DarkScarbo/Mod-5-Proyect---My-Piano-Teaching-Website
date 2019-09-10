@@ -82,6 +82,8 @@ const teacherBookings = students => {
 };
 
 module.exports = {
+  getCurrentDate,
+  getCurrentTime,
   checkDate,
   checkForm,
   checkTime,

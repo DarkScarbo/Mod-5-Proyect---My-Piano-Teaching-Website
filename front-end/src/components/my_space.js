@@ -65,7 +65,6 @@ class MySpace extends React.Component {
   };
 
   postBookingOnThePage = booking => {
-    debugger;
     this.setState({ bookings: [...this.state.bookings, booking] });
   };
 
