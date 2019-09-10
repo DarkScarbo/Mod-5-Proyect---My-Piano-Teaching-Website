@@ -36,12 +36,7 @@ const students = [
         date: "10-09-2019",
         confirmed: "",
         student_name: "Dunia"
-      }
-    ]
-  },
-  {
-    name: "Harriet",
-    my_bookings: [
+      },
       {
         date: "12-09-2019",
         confirmed: "Yes",
@@ -167,5 +162,12 @@ describe("bookings_bl", function() {
   it("teacherBookings should return a array", function() {
     let result = bookings_bl.teacherBookings(students);
     assert.isArray(result);
+  });
+
+  it("teacherBookings should return an array with all the bookings", function() {
+    let result = bookings_bl.teacherBookings(students);
+    assert.equal(result[0], students[0].my_bookings[0]);
+    assert.equal(result[1], students[0].my_bookings[1]);
+    assert.equal(result[2], students[1].my_bookings[0]);
   });
 });

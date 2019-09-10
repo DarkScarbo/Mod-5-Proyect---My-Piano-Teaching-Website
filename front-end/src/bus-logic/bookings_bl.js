@@ -74,7 +74,7 @@ const teacherBookings = students => {
     student.my_bookings.map(booking => booking)
   );
 
-  return bookingsArray.flat().reverse();
+  return bookingsArray.flat();
 };
 
 module.exports = {
