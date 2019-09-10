@@ -113,4 +113,10 @@ describe("bookings_bl", function() {
     assert.isArray(result);
     assert.equal(result[0], bookings[2]);
   });
+
+  it("sortBookings should return a bookings array sorted by status", function() {
+    let result = bookings_bl.sortBookings(bookings, sortByStatus);
+    assert.isArray(result);
+    assert.equal(result[0], bookings[1]);
+  });
 });
