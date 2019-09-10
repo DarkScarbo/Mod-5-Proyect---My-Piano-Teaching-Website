@@ -7,101 +7,27 @@ const date_two = "09-09-2019";
 const time_one = "17:30";
 const time_two = "19:00";
 
-const byDate = "Date";
-const byStatus = "Status";
-const byStudent = "Student";
+const sortByDate = "Date";
+const sortByStatus = "Status";
+const sortByStudent = "Student";
 const bookings = [
   {
-    date: "12-09-2119",
-    starting: "11:30",
-    ending: "13:00",
+    date: "10-09-2019",
     confirmed: "",
-    student_name: "Harriet"
-  },
-  {
-    date: "10-09-2119",
-    starting: "17:30",
-    ending: "19:00",
-    confirmed: "Yes",
     student_name: "Dunia"
   },
   {
-    date: "14-09-2119",
-    starting: "16:30",
-    ending: "18:00",
+    date: "12-09-2019",
+    confirmed: "Yes",
+    student_name: "Harriet"
+  },
+  {
+    date: "14-09-2019",
     confirmed: "",
     student_name: "Fran"
   }
 ];
-const bookingsSortedByDate = [
-  {
-    date: "14-09-2119",
-    starting: "16:30",
-    ending: "18:00",
-    confirmed: "",
-    student_name: "Fran"
-  },
-  {
-    date: "12-09-2119",
-    starting: "11:30",
-    ending: "13:00",
-    confirmed: "",
-    student_name: "Harriet"
-  },
-  {
-    date: "10-09-2119",
-    starting: "17:30",
-    ending: "19:00",
-    confirmed: "Yes",
-    student_name: "Dunia"
-  }
-];
-const bookingsSortedByStatus = [
-  {
-    date: "10-09-2119",
-    starting: "17:30",
-    ending: "19:00",
-    confirmed: "Yes",
-    student_name: "Dunia"
-  },
-  {
-    date: "12-09-2119",
-    starting: "11:30",
-    ending: "13:00",
-    confirmed: "",
-    student_name: "Harriet"
-  },
-  {
-    date: "14-09-2119",
-    starting: "16:30",
-    ending: "18:00",
-    confirmed: "",
-    student_name: "Fran"
-  }
-];
-const bookingsSortedByStudent = [
-  {
-    date: "10-09-2119",
-    starting: "17:30",
-    ending: "19:00",
-    confirmed: "Yes",
-    student_name: "Dunia"
-  },
-  {
-    date: "14-09-2119",
-    starting: "16:30",
-    ending: "18:00",
-    confirmed: "",
-    student_name: "Fran"
-  },
-  {
-    date: "12-09-2119",
-    starting: "11:30",
-    ending: "13:00",
-    confirmed: "",
-    student_name: "Harriet"
-  }
-];
+
 const students = [{}];
 
 const getCurrentDateResult = bookings_bl.getCurrentDate();
@@ -136,9 +62,9 @@ describe("bookings_bl", function() {
     assert.typeOf(result, "string");
   });
 
-  it("getCurrentTime value should have a lenght of 5", function() {
+  it("getCurrentTime value should have a lenght of at least 4", function() {
     let result = getCurrentTimeResult;
-    assert.equal(result.length, 5);
+    assert.isAtLeast(result.length, 4);
   });
 
   it("getCurrentDate characters number 3 must be :", function() {
@@ -182,8 +108,9 @@ describe("bookings_bl", function() {
 
   // sortBookings
 
-  it("sortBookings should return false if the start time is before the end time", function() {
-    let result = bookings_bl.checkTime(time_two, time_one);
-    assert.isFalse(result);
+  it("sortBookings should return a bookings array sorted by date", function() {
+    let result = bookings_bl.sortBookings(bookings, sortByDate);
+    assert.isArray(result);
+    assert.equal(result[0], bookings[2]);
   });
 });
