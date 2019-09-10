@@ -1,4 +1,4 @@
-// Form Logic
+// Form Business Logic
 
 const getCurrentDate = () => {
   const today = new Date();
@@ -22,7 +22,7 @@ const getCurrentTime = () => {
   return time;
 };
 
-export const checkDate = e => {
+const checkDate = e => {
   const currentDate = getCurrentDate()
     .split("-")
     .reverse()
@@ -39,11 +39,11 @@ export const checkDate = e => {
   return checkDate;
 };
 
-export const checkTime = e => {
+const checkTime = e => {
   return e.target.starting.value.localeCompare(e.target.ending.value) === -1; // Cheks if the end time is after the start time.
 };
 
-export const checkForm = e => {
+const checkForm = e => {
   const dateRe = /^\d{2}-\d{2}-\d{4}$/; // Checks if the date is valid.
   const timeRe = /^\d{1,2}:\d{2}([ap]m)?$/; // Cheks if the time is valid.
 
@@ -58,9 +58,9 @@ export const checkForm = e => {
   }
 };
 
-// Sort Logic
+// Sort Business Logic
 
-export const sortBookings = (bookings, sortBy) => {
+const sortBookings = (bookings, sortBy) => {
   const byDate = (a, b) => a.date.localeCompare(b.date);
   const byStatus = (a, b) => a.confirmed.localeCompare(b.confirmed);
   const byStudent = (a, b) => a.student_name.localeCompare(b.student_name);
@@ -73,10 +73,18 @@ export const sortBookings = (bookings, sortBy) => {
   return bookingsCopy;
 };
 
-export const teacherBookings = students => {
+const teacherBookings = students => {
   const bookingsArray = students.map(student =>
     sortBookings(student.my_bookings).map(booking => booking)
   );
 
   return bookingsArray.flat().reverse();
+};
+
+module.exports = {
+  checkDate,
+  checkForm,
+  checkTime,
+  sortBookings,
+  teacherBookings
 };
