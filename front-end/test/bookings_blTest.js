@@ -108,9 +108,13 @@ describe("bookings_bl", function() {
 
   // sortBookings
 
-  it("sortBookings should return a bookings array sorted by date", function() {
+  it("sortBookings should return a array", function() {
     let result = bookings_bl.sortBookings(bookings, sortByDate);
     assert.isArray(result);
+  });
+
+  it("sortBookings should return a bookings array sorted by date", function() {
+    let result = bookings_bl.sortBookings(bookings, sortByDate);
     assert.equal(result[0], bookings[2]);
     assert.equal(result[1], bookings[1]);
     assert.equal(result[2], bookings[0]);
@@ -118,7 +122,6 @@ describe("bookings_bl", function() {
 
   it("sortBookings should return a bookings array sorted by status", function() {
     let result = bookings_bl.sortBookings(bookings, sortByStatus);
-    assert.isArray(result);
     assert.equal(result[0], bookings[1]);
     assert.equal(result[1], bookings[2]);
     assert.equal(result[2], bookings[0]);
@@ -126,7 +129,6 @@ describe("bookings_bl", function() {
 
   it("sortBookings should return a bookings array sorted by student", function() {
     let result = bookings_bl.sortBookings(bookings, sortByStudent);
-    assert.isArray(result);
     assert.equal(result[0], bookings[0]);
     assert.equal(result[1], bookings[2]);
     assert.equal(result[2], bookings[1]);
