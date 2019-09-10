@@ -2,13 +2,9 @@ const assert = require("chai").assert;
 const bookings_bl = require(`../src/bus-logic/bookings_bl`);
 console.log(bookings_bl);
 
-const e = {
-  target: {
-    date: { key: "10-09-2119" },
-    starting: { key: "11:30" },
-    ending: { key: "13:00" }
-  }
-};
+const date = "10-09-2119";
+const time_one = "17:30";
+const time_two = "19:00";
 
 const bookings = [
   {
@@ -33,7 +29,7 @@ const students = [{}];
 
 const getCurrentDateResult = bookings_bl.getCurrentDate();
 const getCurrentTimeResult = bookings_bl.getCurrentTime();
-const checkDateResult = bookings_bl.checkDate(e);
+const checkDateResult = bookings_bl.checkDate(date, time_one);
 // const checkTimeResult = bookings_bl.checkTime(e);
 // const checkFormResult = bookings_bl.checkForm(e);
 
@@ -74,5 +70,17 @@ describe("bookings_bl", function() {
   it("getCurrentDate characters number 3 must be :", function() {
     let result = getCurrentTimeResult;
     assert.equal(result[2], ":");
+  });
+
+  // checkDate
+
+  it("checkDate should return a boolean", function() {
+    let result = checkDateResult;
+    assert.typeOf(result, "boolean");
+  });
+
+  it("checkDate should return a true if the date is not in the past", function() {
+    let result = checkDateResult;
+    assert.isTrue(result, "the date is not in the past");
   });
 });
