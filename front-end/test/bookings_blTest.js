@@ -70,4 +70,9 @@ describe("bookings_bl", function() {
     let result = getCurrentTimeResult;
     assert.equal(result.length, 5);
   });
+
+  it("getCurrentDate characters number 3 must be :", function() {
+    let result = getCurrentTimeResult;
+    assert.equal(result[2], ":");
+  });
 });
