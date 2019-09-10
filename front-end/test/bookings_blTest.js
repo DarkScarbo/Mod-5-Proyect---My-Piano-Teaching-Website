@@ -28,13 +28,41 @@ const bookings = [
   }
 ];
 
-const students = [{}];
+const students = [
+  {
+    name: "Dunia",
+    my_bookings: [
+      {
+        date: "10-09-2019",
+        confirmed: "",
+        student_name: "Dunia"
+      }
+    ]
+  },
+  {
+    name: "Harriet",
+    my_bookings: [
+      {
+        date: "12-09-2019",
+        confirmed: "Yes",
+        student_name: "Harriet"
+      }
+    ]
+  },
+  {
+    name: "Fran",
+    my_bookings: [
+      {
+        date: "14-09-2019",
+        confirmed: "",
+        student_name: "Fran"
+      }
+    ]
+  }
+];
 
 const getCurrentDateResult = bookings_bl.getCurrentDate();
 const getCurrentTimeResult = bookings_bl.getCurrentTime();
-
-// const sortBookings = bookings_bl.sortBookings();
-// const teacherBookings = bookings_bl.teacherBookings();
 
 describe("bookings_bl", function() {
   // getCurrentDate
@@ -132,5 +160,12 @@ describe("bookings_bl", function() {
     assert.equal(result[0], bookings[0]);
     assert.equal(result[1], bookings[2]);
     assert.equal(result[2], bookings[1]);
+  });
+
+  // teacherBookings
+
+  it("teacherBookings should return a array", function() {
+    let result = bookings_bl.teacherBookings(students);
+    assert.isArray(result);
   });
 });

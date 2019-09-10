@@ -22,7 +22,7 @@ const getCurrentTime = () => {
   return time;
 };
 
-const checkDate = (date, starting) => {
+const checkDate = (date, startTime) => {
   const currentDate = getCurrentDate()
     .split("-")
     .reverse()
@@ -34,20 +34,20 @@ const checkDate = (date, starting) => {
   const checkDate =
     currentDate.localeCompare(dateReversed) === -1 ||
     (currentDate.localeCompare(dateReversed) === 0 &&
-      getCurrentTime().localeCompare(starting) === -1); // Checks if date and time are not in the past.
+      getCurrentTime().localeCompare(startTime) === -1); // Checks if date and time are not in the past.
 
   return checkDate;
 };
 
-const checkTime = (starting, ending) => {
-  return starting.localeCompare(ending) === -1; // Cheks if the end time is after the start time.
+const checkTime = (startTime, endTime) => {
+  return startTime.localeCompare(endTime) === -1; // Cheks if the end time is after the start time.
 };
 
-const checkForm = (date, starting, ending) => {
+const checkForm = (date, startTime, endTime) => {
   const dateRe = /^\d{2}-\d{2}-\d{4}$/; // Checks if the date is valid.
   const timeRe = /^\d{1,2}:\d{2}([ap]m)?$/; // Cheks if the time is valid.
 
-  if (date.match(dateRe) && starting.match(timeRe) && ending.match(timeRe)) {
+  if (date.match(dateRe) && startTime.match(timeRe) && endTime.match(timeRe)) {
     return true;
   } else {
     return false;
@@ -71,7 +71,7 @@ const sortBookings = (bookings, sortBy) => {
 
 const teacherBookings = students => {
   const bookingsArray = students.map(student =>
-    sortBookings(student.my_bookings).map(booking => booking)
+    student.my_bookings.map(booking => booking)
   );
 
   return bookingsArray.flat().reverse();
