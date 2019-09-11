@@ -76,28 +76,30 @@ class BookingCard extends React.Component {
   render() {
     return (
       <Grid padded columns="equal">
-        {this.props.typeOfUser === "teacher" && (
-          <Grid.Column width={4}>
-            <Segment>
-              <p>{this.props.booking.student_name}</p>
-              {this.props.booking.student_email}
-            </Segment>
+        <Grid.Row stretched>
+          {this.props.typeOfUser === "teacher" && (
+            <Grid.Column width={4}>
+              <Segment>
+                <p>{this.props.booking.student_name}</p>
+                {this.props.booking.student_email}
+              </Segment>
+            </Grid.Column>
+          )}
+          <Grid.Column>
+            <Segment>{this.props.booking.date}</Segment>
           </Grid.Column>
-        )}
-        <Grid.Column>
-          <Segment>{this.props.booking.date}</Segment>
-        </Grid.Column>
-        <Grid.Column>
-          <Segment>{this.props.booking.starting}</Segment>
-        </Grid.Column>
-        <Grid.Column>
-          <Segment>{this.props.booking.ending}</Segment>
-        </Grid.Column>
-        <Grid.Column>
-          {this.props.booking.confirmed
-            ? this.getYesOrNoIcons()
-            : this.getQuestionIconOrTeacherCheckingForm()}
-        </Grid.Column>
+          <Grid.Column>
+            <Segment>{this.props.booking.starting}</Segment>
+          </Grid.Column>
+          <Grid.Column>
+            <Segment>{this.props.booking.ending}</Segment>
+          </Grid.Column>
+          <Grid.Column>
+            {this.props.booking.confirmed
+              ? this.getYesOrNoIcons()
+              : this.getQuestionIconOrTeacherCheckingForm()}
+          </Grid.Column>
+        </Grid.Row>
       </Grid>
     );
   }
