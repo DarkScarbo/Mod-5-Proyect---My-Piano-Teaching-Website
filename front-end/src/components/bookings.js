@@ -60,11 +60,11 @@ const Bookings = props => {
         student_id,
         student_name,
         student_email
-      ).then(booking => {
-        if (booking.errors) {
-          console.log(booking);
+      ).then(response => {
+        if (response.errors) {
+          console.log(response);
         } else {
-          props.postBookingOnThePage(booking);
+          props.postBookingOnThePage(response);
         }
       });
     } else {
