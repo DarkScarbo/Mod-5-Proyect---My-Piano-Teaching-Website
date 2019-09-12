@@ -8,7 +8,7 @@ const About = () => {
         <Header as="h1" textAlign="center">
           About
         </Header>
-        <div style={{ padding: "1em 0em" }}>
+        <div style={{ padding: "1.15em 0em" }}>
           <Segment secondary>
             <Image
               src={require("../Images/Xabi.jpg")}

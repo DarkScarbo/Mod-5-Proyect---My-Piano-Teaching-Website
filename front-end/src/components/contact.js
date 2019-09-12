@@ -13,7 +13,7 @@ const Contact = () => {
       <Header as="h1" textAlign="center">
         Contact
       </Header>
-      <div style={{ padding: "4.75em 0em" }}>
+      <div style={{ padding: "2.85em 0em" }}>
         <Image
           style={{ paddingLeft: "1px" }}
           src={require("../Images/xabi-piano-00.jpg")}
