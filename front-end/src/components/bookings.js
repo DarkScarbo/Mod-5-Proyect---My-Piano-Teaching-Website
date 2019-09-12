@@ -60,9 +60,10 @@ const Bookings = props => {
         student_id,
         student_name,
         student_email
-      )
-        .then(booking => props.postBookingOnThePage(booking))
-        .catch(error => console.log(error));
+      ).then(booking => {
+        props.postBookingOnThePage(booking);
+        console.log(booking);
+      });
     } else {
       alert("Invalid date or time input.");
       resetStateValues();
