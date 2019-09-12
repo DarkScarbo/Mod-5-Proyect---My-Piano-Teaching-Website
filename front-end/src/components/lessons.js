@@ -31,9 +31,7 @@ const Lessons = () => {
           professionals. My repertoire includes both the classical and also the
           jazz tradition.
         </p>
-        <Header as="h2" textAlign="center">
-          Tutorial Approach:
-        </Header>
+        <Header as="h2">Tutorial Approach:</Header>
         <p className="p-review">
           I'm a dedicated and passionate teacher with a thorough approach,
           always getting the best out of my students. I adapt to new students
