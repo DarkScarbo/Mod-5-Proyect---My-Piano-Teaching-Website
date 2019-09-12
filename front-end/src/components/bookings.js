@@ -3,7 +3,7 @@ import BookingCard from "./bookingCard";
 import SortBookings from "./sortBookings";
 import { Grid, Button, Form, Header, Segment } from "semantic-ui-react";
 import { postBooking } from "../services/api";
-import { checkDate, checkTime, checkForm } from "../bus-logic/bookings_bl";
+import { checks } from "../bus-logic/bookings_bl";
 import { sortBookings, teacherBookings } from "../bus-logic/bookings_bl";
 
 const Bookings = props => {
@@ -11,6 +11,10 @@ const Bookings = props => {
   const [starting, setStarting] = useState("");
   const [ending, setEnding] = useState("");
   const [sortBy, setSortBy] = useState("None");
+  const [confirmed] = useState("");
+  const [student_id] = useState(props.id);
+  const [student_name] = useState(props.name);
+  const [student_email] = useState(props.email);
 
   // Handle sorting.
 
@@ -33,25 +37,7 @@ const Bookings = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const date = e.target.date.value;
-    const starting = e.target.starting.value;
-    const ending = e.target.ending.value;
-
-    const resetStateValues = () => {
-      setDate("");
-      setStarting("");
-      setEnding("");
-    };
-
-    if (
-      checkDate(date, starting) &&
-      checkForm(date, starting, ending) &&
-      checkTime(starting, ending)
-    ) {
-      const confirmed = "";
-      const student_id = props.id;
-      const student_name = props.name;
-      const student_email = props.email;
+    if (checks(date, starting, ending)) {
       postBooking(
         date,
         starting,
@@ -69,7 +55,6 @@ const Bookings = props => {
       });
     } else {
       alert("Invalid date or time input.");
-      resetStateValues();
     }
   };
 

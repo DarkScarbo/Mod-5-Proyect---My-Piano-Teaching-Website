@@ -54,6 +54,14 @@ const checkForm = (date, startTime, endTime) => {
   }
 };
 
+const checks = (date, startTime, endTime) => {
+  return (
+    checkDate(date, startTime) &&
+    checkTime(startTime, endTime) &&
+    checkForm(date, startTime, endTime)
+  );
+};
+
 // Sort Business Logic
 
 const sortBookings = (bookings, sortBy) => {
@@ -83,6 +91,7 @@ module.exports = {
   checkDate,
   checkForm,
   checkTime,
+  checks,
   sortBookings,
   teacherBookings
 };

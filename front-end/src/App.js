@@ -1,5 +1,16 @@
 import React from "react";
 import "./App.css";
+import {
+  Container,
+  Divider,
+  Dropdown,
+  Grid,
+  Header,
+  Image,
+  List,
+  Menu,
+  Segment
+} from "semantic-ui-react";
 import Reviews from "./components/reviews";
 import About from "./components/about";
 import Navbar from "./components/navbar";
@@ -70,7 +81,7 @@ class App extends React.Component {
           />
 
           <Route
-            path="/mySpace"
+            path="/mySpace/"
             component={props => (
               <ErrorBoundary>
                 <MySpace
@@ -82,6 +93,15 @@ class App extends React.Component {
             )}
           />
         </Switch>
+        <Segment
+          inverted
+          vertical
+          style={{ margin: "2em 0em 0em", padding: "1.5em 0em" }}
+        >
+          <Container textAlign="center">
+            © Xabier Casan Abia, Piano Teacher.
+          </Container>
+        </Segment>
       </div>
     );
   }

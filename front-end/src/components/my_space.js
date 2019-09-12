@@ -6,8 +6,6 @@ import Videos from "./videos";
 import { Route, Switch } from "react-router-dom";
 import MySpaceNavbar from "./mySpaceNavbar";
 import { Segment, Header } from "semantic-ui-react";
-import ErrorBoundary from "./errorBoundary";
-
 class MySpace extends React.Component {
   state = {
     messages: [],
@@ -118,18 +116,16 @@ class MySpace extends React.Component {
               exact
               path="/mySpace/myBookings"
               component={() => (
-                <ErrorBoundary>
-                  <Bookings
-                    name={this.state.name}
-                    email={this.state.email}
-                    students={this.state.students}
-                    typeOfUser={this.props.typeOfUser}
-                    bookings={this.state.bookings}
-                    id={this.props.id}
-                    postBookingOnThePage={this.postBookingOnThePage}
-                    updateBookingOnThePage={this.updateBookingOnThePage}
-                  />
-                </ErrorBoundary>
+                <Bookings
+                  name={this.state.name}
+                  email={this.state.email}
+                  students={this.state.students}
+                  typeOfUser={this.props.typeOfUser}
+                  bookings={this.state.bookings}
+                  id={this.props.id}
+                  postBookingOnThePage={this.postBookingOnThePage}
+                  updateBookingOnThePage={this.updateBookingOnThePage}
+                />
               )}
             />
             <Route

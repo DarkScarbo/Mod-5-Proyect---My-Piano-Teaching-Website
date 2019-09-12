@@ -13,24 +13,26 @@ const Contact = () => {
       <Header as="h1" textAlign="center">
         Contact
       </Header>
-      <Image
-        style={{ paddingLeft: "1px" }}
-        src={require("../Images/xabi-piano-00.jpg")}
-        size="large"
-        floated="left"
-      />
-      <p className="p-review">To get in touch:</p>
-      <p className="p-review">
-        Mobile phone: <br />
-        07539 175 029
-      </p>
-      <p className="p-review">Email: xabi.casan.piano@gmail.com</p>
-      <p className="p-review">
-        Studio:
-        <br /> SE1 3GU, London Bridge.
-      </p>
+      <div style={{ padding: "4.75em 0em" }}>
+        <Image
+          style={{ paddingLeft: "1px" }}
+          src={require("../Images/xabi-piano-00.jpg")}
+          size="large"
+          floated="left"
+        />
+        <p className="p-review">To get in touch:</p>
+        <p className="p-review">
+          Mobile phone: <br />
+          07539 175 029
+        </p>
+        <p className="p-review">Email: xabi.casan.piano@gmail.com</p>
+        <p className="p-review">
+          Studio:
+          <br /> SE1 3GU, London Bridge.
+        </p>
 
-      <p className="p-review">Sign up or log in for more content!</p>
+        <p className="p-review">Sign up or log in for more content!</p>
+      </div>
     </Container>
   );
 };
