@@ -10,7 +10,11 @@ const Reviews = () => {
         textAlign: "justify"
       }}
     >
-      <Header as="h1" textAlign="center">
+      <Header
+        as="h1"
+        textAlign="center"
+        style={{ textDecoration: "underline" }}
+      >
         Reviews
       </Header>
       <div style={{ padding: "2.2em 0em" }}>

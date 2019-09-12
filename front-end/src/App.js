@@ -89,7 +89,7 @@ class App extends React.Component {
           style={{ margin: "2em 0em 0em", padding: "1.5em 0em" }}
         >
           <Container textAlign="center">
-            © Xabier Casan Abia, Piano Teacher.
+            © Xabier Casán Abia, Piano Teacher.
           </Container>
         </Segment>
       </div>

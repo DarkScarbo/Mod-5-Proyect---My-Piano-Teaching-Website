@@ -10,7 +10,11 @@ const Contact = () => {
         backgroundColor: "rgba(255, 255, 255, 0.9)"
       }}
     >
-      <Header as="h1" textAlign="center">
+      <Header
+        as="h1"
+        textAlign="center"
+        style={{ textDecoration: "underline" }}
+      >
         Contact
       </Header>
       <div style={{ padding: "2.85em 0em" }}>

@@ -107,7 +107,11 @@ class MySpace extends React.Component {
     return (
       <div>
         <Segment color="blue" secondary>
-          <Header as="h1" textAlign="center">
+          <Header
+            as="h1"
+            textAlign="center"
+            style={{ textDecoration: "underline" }}
+          >
             Welcome to "My Space" {this.state.name}!
           </Header>
           <MySpaceNavbar />

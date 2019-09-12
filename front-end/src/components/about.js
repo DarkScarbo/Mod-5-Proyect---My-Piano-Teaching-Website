@@ -5,7 +5,11 @@ const About = () => {
   return (
     <div className="Ondine-backgroung">
       <Container text style={{ textAlign: "justify" }}>
-        <Header as="h1" textAlign="center">
+        <Header
+          as="h1"
+          textAlign="center"
+          style={{ textDecoration: "underline" }}
+        >
           About
         </Header>
         <div style={{ padding: "1.15em 0em" }}>

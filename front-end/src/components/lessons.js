@@ -10,7 +10,11 @@ const Lessons = () => {
         textAlign: "justify"
       }}
     >
-      <Header as="h1" textAlign="center">
+      <Header
+        as="h1"
+        textAlign="center"
+        style={{ textDecoration: "underline" }}
+      >
         Lessons
       </Header>
       <div style={{ padding: "3.45em 0em" }}>
