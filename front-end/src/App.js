@@ -1,16 +1,6 @@
 import React from "react";
 import "./App.css";
-import {
-  Container,
-  Divider,
-  Dropdown,
-  Grid,
-  Header,
-  Image,
-  List,
-  Menu,
-  Segment
-} from "semantic-ui-react";
+import { Container, Segment } from "semantic-ui-react";
 import Reviews from "./components/reviews";
 import About from "./components/about";
 import Navbar from "./components/navbar";
