@@ -49,9 +49,9 @@ const Bookings = props => {
       checkTime(starting, ending)
     ) {
       const confirmed = "";
+      const student_id = props.id;
       const student_name = props.name;
       const student_email = props.email;
-      const student_id = props.id;
       postBooking(
         date,
         starting,
@@ -61,8 +61,11 @@ const Bookings = props => {
         student_name,
         student_email
       ).then(booking => {
-        props.postBookingOnThePage(booking);
-        console.log(booking);
+        if (booking.errors) {
+          console.log(booking);
+        } else {
+          props.postBookingOnThePage(booking);
+        }
       });
     } else {
       alert("Invalid date or time input.");
