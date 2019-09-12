@@ -24,9 +24,7 @@ const Lessons = () => {
           size="medium"
           floated="left"
         />
-        <Header as="h2" textAlign="center">
-          Tutoring Experience:
-        </Header>
+        <Header as="h2">Tutoring Experience:</Header>
         <p className="p-review">
           I have been teaching the piano for over 10 years to the full range of
           students, from those just starting their journey all the way to
