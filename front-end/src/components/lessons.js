@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Header, Image, Segment } from "semantic-ui-react";
+import { Container, Header, Image } from "semantic-ui-react";
 
 const Lessons = () => {
   return (
