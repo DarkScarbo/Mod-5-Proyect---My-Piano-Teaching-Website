@@ -9,6 +9,7 @@ import MySpace from "./components/my_space";
 import SignUpLogInForm from "./components/signup_login_form";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { validate } from "./services/api";
+import ErrorBoundary from "./components/errorBoundary";
 
 class App extends React.Component {
   state = {
@@ -71,11 +72,13 @@ class App extends React.Component {
           <Route
             path="/mySpace"
             component={props => (
-              <MySpace
-                id={this.state.id}
-                typeOfUser={this.state.typeOfUser}
-                {...props}
-              />
+              <ErrorBoundary>
+                <MySpace
+                  id={this.state.id}
+                  typeOfUser={this.state.typeOfUser}
+                  {...props}
+                />
+              </ErrorBoundary>
             )}
           />
         </Switch>
