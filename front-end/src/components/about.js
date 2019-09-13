@@ -8,6 +8,7 @@ const About = () => {
         <Header
           as="h1"
           textAlign="center"
+          color="blue"
           style={{ textDecoration: "underline" }}
         >
           About

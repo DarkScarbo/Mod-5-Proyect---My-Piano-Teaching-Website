@@ -13,6 +13,7 @@ const Lessons = () => {
       <Header
         as="h1"
         textAlign="center"
+        color="blue"
         style={{ textDecoration: "underline" }}
       >
         Lessons

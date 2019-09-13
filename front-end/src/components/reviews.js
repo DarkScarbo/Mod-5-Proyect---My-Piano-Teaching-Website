@@ -13,6 +13,7 @@ const Reviews = () => {
       <Header
         as="h1"
         textAlign="center"
+        color="blue"
         style={{ textDecoration: "underline" }}
       >
         Reviews
