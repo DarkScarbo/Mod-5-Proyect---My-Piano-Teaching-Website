@@ -14,7 +14,7 @@ const Reviews = () => {
         as="h1"
         textAlign="center"
         color="blue"
-        style={{ textDecoration: "underline" }}
+        style={{ textDecoration: "underline", fontWeight: "normal" }}
       >
         Reviews
       </Header>
@@ -25,7 +25,7 @@ const Reviews = () => {
             size="small"
             floated="left"
           />
-          <h2 style={{ color: "black" }}>Harriet</h2>
+          <h2 style={{ color: "black", fontWeight: "normal" }}>Harriet</h2>
           <p className="p-review">
             He has been my piano teacher for the last 4 years. I've learnt how
             to be patient, pay attention to the details while studying, and keep
@@ -39,7 +39,12 @@ const Reviews = () => {
           size="small"
           floated="right"
         />
-        <h2 className="Text-right">Fran</h2>
+        <h2
+          style={{ color: "black", fontWeight: "normal" }}
+          className="Text-right"
+        >
+          Fran
+        </h2>
         <Segment>
           <p className="p-review">
             Xabi really helped me to improve my piano skills. He taught me how
@@ -52,7 +57,7 @@ const Reviews = () => {
             size="small"
             floated="left"
           />
-          <h2 style={{ color: "black" }}>James</h2>
+          <h2 style={{ color: "black", fontWeight: "normal" }}>James</h2>
           <p className="p-review">
             I started doing the ABRSM grades with him three years ago and I
             couldn't be happier. He always encourages a positive attitude, even
@@ -66,7 +71,10 @@ const Reviews = () => {
           size="small"
           floated="right"
         />
-        <h2 style={{ color: "black" }} className="Text-right">
+        <h2
+          style={{ color: "black", fontWeight: "normal" }}
+          className="Text-right"
+        >
           Dunia
         </h2>
         <Segment>
@@ -81,7 +89,7 @@ const Reviews = () => {
             size="small"
             floated="left"
           />
-          <h2 style={{ color: "black" }}>Chechi</h2>
+          <h2 style={{ color: "black", fontWeight: "normal" }}>Chechi</h2>
           <p className="p-review">
             We've studied together for a long time. He's a great, friendly and
             professional teacher. He's very patient, and has a great knowledge
@@ -96,7 +104,10 @@ const Reviews = () => {
           size="small"
           floated="right"
         />
-        <h2 style={{ color: "black" }} className="Text-right">
+        <h2
+          style={{ color: "black", fontWeight: "normal" }}
+          className="Text-right"
+        >
           Ayush
         </h2>
         <Segment>
@@ -112,7 +123,7 @@ const Reviews = () => {
             size="small"
             floated="left"
           />
-          <h2 style={{ color: "black" }}>Anna</h2>
+          <h2 style={{ color: "black", fontWeight: "normal" }}>Anna</h2>
           <p className="p-review">
             He is very versatile as a teacher. I learnt how to play jazz piano
             piaces with him, while learning classical and jazz harmony to make

@@ -9,7 +9,7 @@ const About = () => {
           as="h1"
           textAlign="center"
           color="blue"
-          style={{ textDecoration: "underline" }}
+          style={{ textDecoration: "underline", fontWeight: "normal" }}
         >
           About
         </Header>
@@ -76,7 +76,7 @@ const About = () => {
             </p>
           </Segment>
           <Segment secondary style={{ marginBottom: "20px" }}>
-            <Header as="h2" textAlign="center">
+            <Header as="h2" textAlign="center" style={{ fontWeight: "normal" }}>
               Qualifications
             </Header>
             <List bulleted>

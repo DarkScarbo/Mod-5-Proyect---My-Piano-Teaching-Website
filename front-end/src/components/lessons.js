@@ -14,7 +14,7 @@ const Lessons = () => {
         as="h1"
         textAlign="center"
         color="blue"
-        style={{ textDecoration: "underline" }}
+        style={{ textDecoration: "underline", fontWeight: "normal" }}
       >
         Lessons
       </Header>
@@ -25,14 +25,18 @@ const Lessons = () => {
           size="medium"
           floated="left"
         />
-        <Header as="h2">Tutoring Experience:</Header>
+        <Header as="h2" style={{ fontWeight: "normal" }}>
+          Tutoring Experience
+        </Header>
         <p className="p-review">
-          I have been teaching the piano for over 10 years to the full range of
+          I have been teaching the piano for over 13 years to the full range of
           students, from those just starting their journey all the way to
           professionals. My repertoire includes both the classical and also the
           jazz tradition.
         </p>
-        <Header as="h2">Tutorial Approach:</Header>
+        <Header as="h2" style={{ fontWeight: "normal" }}>
+          Tutorial Approach
+        </Header>
         <p className="p-review">
           I'm a dedicated and passionate teacher with a thorough approach,
           always getting the best out of my students. I adapt to new students

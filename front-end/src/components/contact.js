@@ -14,7 +14,7 @@ const Contact = () => {
         as="h1"
         textAlign="center"
         color="blue"
-        style={{ textDecoration: "underline" }}
+        style={{ textDecoration: "underline", fontWeight: "normal" }}
       >
         Contact
       </Header>
