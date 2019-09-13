@@ -110,7 +110,7 @@ class MySpace extends React.Component {
           <Header
             as="h1"
             textAlign="center"
-            style={{ textDecoration: "underline" }}
+            style={{ textDecoration: "underline", fontWeight: "normal" }}
           >
             Welcome to "My Space" {this.state.name}!
           </Header>
