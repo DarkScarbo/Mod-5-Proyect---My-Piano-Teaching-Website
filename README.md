@@ -35,7 +35,7 @@ The client-side of the application is built in React. The style is a combination
 5. Run `rails s`.
 6. Go to the front-end folder.
 7. Run `npm install`.
-8. Run `npm start`.
+8. Run `npm start` in port 3001.
 
 ## Screenshots and Gifs
 
