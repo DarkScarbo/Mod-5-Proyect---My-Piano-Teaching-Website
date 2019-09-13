@@ -129,6 +129,13 @@ describe("bookings_bl", function() {
     assert.isFalse(result);
   });
 
+  // cheks
+
+  it("check should return a boolean.", function() {
+    let result = bookings_bl.checks(date_one, time_one, time_two);
+    assert.typeOf(result, "boolean");
+  });
+
   // sortBookings
 
   it("sortBookings should return an array.", function() {
