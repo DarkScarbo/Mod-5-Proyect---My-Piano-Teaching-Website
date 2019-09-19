@@ -54,6 +54,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar
+          borderless
           logedIn={this.state.logedIn}
           logIn={this.logIn}
           logOut={this.logOut}
