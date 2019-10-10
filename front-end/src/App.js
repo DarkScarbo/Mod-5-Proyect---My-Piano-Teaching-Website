@@ -46,6 +46,7 @@ class App extends React.Component {
 
   logOut = () => {
     this.setState({ name: "", logedIn: false });
+
     this.props.history.push("/about");
     localStorage.removeItem("token");
   };

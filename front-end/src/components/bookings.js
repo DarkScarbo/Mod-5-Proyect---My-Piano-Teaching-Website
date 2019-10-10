@@ -58,6 +58,47 @@ const Bookings = props => {
     }
   };
 
+  const bookings =
+    props.typeOfUser === "student"
+      ? props.bookings
+      : teacherBookings(props.students);
+
+  const BookingCardHeader = ({ typeOfUser }) => (
+    <Grid padded columns="equal">
+      {typeOfUser === "teacher" && (
+        <Grid.Column width={4}>
+          <Segment tertiary>Student</Segment>
+        </Grid.Column>
+      )}
+      <Grid.Column>
+        <Segment tertiary>Date</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment tertiary>Start Time</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment tertiary>End time</Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment tertiary>Status</Segment>
+      </Grid.Column>
+    </Grid>
+  );
+
+  const BookingCards = ({ bookings, typeOfUser, updateBookingOnThePage }) => {
+    const updateBooking =
+      typeOfUser === "student" ? undefined : updateBookingOnThePage;
+      
+    return bookings.map((booking, index) => (
+      <BookingCard
+        key={index}
+        booking={booking}
+        typeOfUser={typeOfUser}
+        updateBookingOnThePage={updateBooking}
+      />
+    ));
+  };
+
   return (
     <div>
       {props.bookings && (
@@ -100,43 +141,13 @@ const Bookings = props => {
         </Segment>
       )}
       <SortBookings updateSortBy={updateSortBy} typeOfUser={props.typeOfUser} />
-      <Grid padded columns="equal">
-        {props.typeOfUser === "teacher" && (
-          <Grid.Column width={4}>
-            <Segment tertiary>Student</Segment>
-          </Grid.Column>
-        )}
-        <Grid.Column>
-          <Segment tertiary>Date</Segment>
-        </Grid.Column>
-        <Grid.Column>
-          <Segment tertiary>Start Time</Segment>
-        </Grid.Column>
-        <Grid.Column>
-          <Segment tertiary>End time</Segment>
-        </Grid.Column>
-        <Grid.Column>
-          <Segment tertiary>Status</Segment>
-        </Grid.Column>
-      </Grid>
-      {props.typeOfUser === "student"
-        ? sortBookings(props.bookings, sortBy).map((booking, index) => (
-            <BookingCard
-              key={index}
-              booking={booking}
-              typeOfUser={props.typeOfUser}
-            />
-          ))
-        : sortBookings(teacherBookings(props.students), sortBy).map(
-            (booking, index) => (
-              <BookingCard
-                key={index}
-                booking={booking}
-                typeOfUser={props.typeOfUser}
-                updateBookingOnThePage={props.updateBookingOnThePage}
-              />
-            )
-          )}
+
+      <BookingCardHeader typeOfUser={props.typeOfUser} />
+      <BookingCards
+        bookings={sortBookings(bookings, sortBy)}
+        typeOfUser={props.typeOfUser}
+        updateBookingOnThePage={props.updateBookingOnThePage}
+      />
     </div>
   );
 };
