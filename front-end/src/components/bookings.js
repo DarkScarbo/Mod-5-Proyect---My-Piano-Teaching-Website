@@ -58,6 +58,8 @@ const Bookings = props => {
     }
   };
 
+  // Logic for the Rendering
+
   const bookings =
     props.typeOfUser === "student"
       ? props.bookings
@@ -88,7 +90,7 @@ const Bookings = props => {
   const BookingCards = ({ bookings, typeOfUser, updateBookingOnThePage }) => {
     const updateBooking =
       typeOfUser === "student" ? undefined : updateBookingOnThePage;
-      
+
     return bookings.map((booking, index) => (
       <BookingCard
         key={index}
